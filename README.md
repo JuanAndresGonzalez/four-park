@@ -12,7 +12,7 @@ El sistema permite a los usuarios buscar parqueaderos mediante filtros, como la 
 - Sergio Andres Vega 20191020121 [@Sergio-Vega21](https://github.com/Sergio-Vega21)
 - Anderson Jeffrey Lopez 20162020424 [@anderson](https://github.com/caimanc)
 - Juan Andres Gonzalez 20191020153 [@JuanAndresGonzalez](https://github.com/JuanAndresGonzalez)
-- Igor Felipe Abril 20192020129 [@Igor](https://github.com/)
+- Igor Felipe Abril 20192020129 [@felipeabril520](https://github.com/felipeabril520)
 ## Referencia de color
 
 | Color             | Hex                                                                |
