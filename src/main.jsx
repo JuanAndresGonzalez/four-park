@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
       <Route path="/" element={<EmployeeRegistration />} />
-      <Route path="/inise" element={<Inise />} />{/*prueba de conexion*/}
+      <Route path="/inise" element={<Inise />} />{/*prueba de conexion nueva*/}
       <Route path="/agregarParqueadero" element={<AgregarParqueadero />} />
     </Routes>
   </Router>
