@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
 
+import { useNavigate } from 'react-router-dom';
+
+const Reserva = () => {
+    const navigate = useNavigate(); // Get useNavigate hook instance
+}
+
 const reserva = () => {
   const [form, setForm] = useState({
     email: '',
@@ -27,19 +33,19 @@ const reserva = () => {
         <label>
           Email:
           <input type="email" name="email" value={form.email} onChange={handleChange} required />
-        </label>
+        </label><br />
         <label>
           ID de Reserva:
           <input type="text" name="idReserva" value={form.idReserva} onChange={handleChange} required />
-        </label>
+        </label><br />
         <label>
           ID de Parqueadero:
           <input type="text" name="idParqueadero" value={form.idParqueadero} onChange={handleChange} required />
-        </label>
+        </label><br />
         <label>
           Espacio Asignado:
           <input type="text" name="espacioAsignado" value={form.espacioAsignado} onChange={handleChange} required />
-        </label>
+        </label><br />
         <button type="submit">Enviar</button>
       </form>
     </div>

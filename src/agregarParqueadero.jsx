@@ -62,6 +62,7 @@ function agregarParqueadero() {
         <input type="text" name="codigo" onChange={handleChange} />
       </label><br></br>
       <button type="submit">GUARDAR</button>
+      <p><a href="/reserva">vista reserva</a></p>
     </form>
     </div>
   );
