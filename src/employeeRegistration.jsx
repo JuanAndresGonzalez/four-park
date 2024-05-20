@@ -7,7 +7,7 @@ const EmployeeRegistration = () => {
     const navigate = useNavigate(); // Get useNavigate hook instance
 
 const handleLoginClick = () => {
-    navigate('/inise'); // Navigate to '/inise' when clicked
+    navigate('/agregarParqueadero'); // Navigate to '/inise' when clicked
 };
     return (
         
