@@ -25,5 +25,5 @@ El sistema permite a los usuarios buscar parqueaderos mediante filtros, como la 
 
 ## Documentación
 
-[Documento arquitectura solución](https://udistritaleduco-my.sharepoint.com/:w:/g/personal/cacaimanu_udistrital_edu_co/EYapmAiRcHZEnPavAExExpQBCg_LkreL3qgAEUTRsSdRgw?e=I3tLbs)
+[Documento arquitectura solución](https://udistritaleduco-my.sharepoint.com/:w:/r/personal/juagonzalezg_udistrital_edu_co/_layouts/15/doc2.aspx?sourcedoc=%7B9E3A9F10-6E8C-46EE-A8C6-E4091D7E5F8C%7D&file=Documento%20de%20Disen%CC%83o%20y%20Arquitectura%20de%20la%20solucio%CC%81n.docx&action=default&mobileredirect=true&ct=1716218701626&wdOrigin=OFFICECOM-WEB.MAIN.UPLOAD&cid=76dbc4e0-8d17-488a-a274-5a977c65a923&wdPreviousSessionSrc=HarmonyWeb&wdPreviousSession=62c02b2c-af65-4d27-8d5e-dadcecac0e26)
 
