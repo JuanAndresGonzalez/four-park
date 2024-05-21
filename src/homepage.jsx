@@ -4,12 +4,13 @@ import camioneta from './assets/img/camioneta.png';
 import dinero from './assets/img/dinero.png';
 import calendario from './assets/img/calendario.png';
 import mano from './assets/img/mano.png';
+import styles from './Homepage.module.css';
 
 
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate(); // Get useNavigate hook instance
+  const navigate = useNavigate(); 
 
   const handleReservationClick = () => {
     navigate('/reserva'); // Navigate to the reserva view
@@ -24,28 +25,29 @@ const Home = () => {
   };
 
   return (
-    <div className="home">
+    <div className={styles.Homepage}>
       <nav>
-        <img src={logo} alt="Four Parking logo" />
+        <div className={styles.logocontainer}>
+        <img src={logo} alt="Four Parking logo" className={styles.logo}/>
+        </div>
+        <div className={styles.navLinks}>
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
-        <a href="/somos">¿Quienes somos?</a>
-        <button onClick={handleReservationClick}>¡Reserva ahora!</button> {/* Adjusted button */}
+        <a href="/somos">¿Quiénes somos?</a>
+        <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button> 
+        </div>
       </nav>
 
-      <div className="cta">
-        <div className="cta-text">
+      <div className={styles.BannerContainer}>
+      <img src={camioneta} alt="Camioneta suzuki" className={styles.SuzukiImage} />
           <p><h2>Parquea con facilidad en Colombia</h2></p><br />
           <p><h3>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones</h3></p>
           <button onClick={handleEmployeeRegistrationClick}>Únete ahora</button>
           <button onClick={handleIniseClick}>Ingresa ahora</button>
         </div>
-        <div className="cta-image">
-          {/* Asegúrate de tener una imagen en tu proyecto para usar aquí */}
-          <img src={camioneta} alt="Camioneta suzuki" />
-        </div>
-      </div>
-
+        
+      
+| 
       <div className="cta-grid">
         <div>
           <p><h2>¿Por qué elegirnos?</h2></p><br />

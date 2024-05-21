@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap');
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.Homepage{
+    background-color: #f3f2ed;
+    padding: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.logocontainer{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+      
+.logo {
+    width: 300px; 
+    height: auto;
+    max-width: 100%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+ }
+
+ .navLinks {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color:#121214;
+    border: none;
+    cursor:pointer;
+    font-family: "Quicksand", serif;
+    font-size: 18px;
+    text-decoration: none;
+   
+  }
+
+.navLinks a {
+  color: #121214; 
+  margin-right: 10px; 
+  font-weight: 600;
+  text-decoration: none;
+}
+.navLinks a:last-child {
+    margin-right: 0; 
+}
+  
+.Reservationbutton{
+    background-color: #A91127;
+    color: #f3f2ed;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; 
+    top: 10px; /* Añadido */
+    right: 20px; /* Añadido */
+    font-family: "Quicksand", serif;
+    font-weight: 600;
+    border-radius: 6%;
+  }
+      
+  .Reservationbutton:hover {
+    background-color: #bc5878;
+  }
+
+.BannerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(90deg, hsla(2, 70%, 43%, 1) 0%, hsla(24, 78%, 82%, 1) 100%);
+    border-radius: 20px; 
+    border-bottom-right-radius: 120px;
+  }
+  
+.SuzukiImage {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px; 
+    margin-left: auto; 
+}
+  
+@media (max-width: 768px) {
+    .logo {
+        width: 80px; 
+     }
+     .navLinks {
+        flex-direction: column; 
+        margin: 0; 
+      }
+      .navLinks a {
+        margin: 0 0 10px 0; 
+      }
+      .navLinks a:last-child {
+        margin-bottom: 0; 
+      }
+}
+      
+@media (max-width: 480px) {
+    .logo {
+        width: 60px; 
+    }
+    .navLinks {
+        align-items: flex-start;
+      }
+}
+
+
