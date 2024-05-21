@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
+import styles from './AddParking.module.css';
+import logo from './assets/img/logo.png';
 
 const AgregarParqueadero = () => {
-    const navigate = useNavigate(); // Get useNavigate hook instance
+    const navigate = useNavigate();
 }
 
 function agregarParqueadero() {
@@ -30,12 +31,17 @@ function agregarParqueadero() {
   };
 
   return (
-    <div>
+    <div className={styles.AddParking}>
+    <div className={styles.logocontainer}>
+      <img src={logo} alt='Four Parking Logo' className={styles.logo} />
+    </div>
         <h1>Agregar nuevo parqueadero</h1>
+    <div className={styles.formcontainer}>
+    <div className={styles.formcontent}>
     <form onSubmit={handleSubmit}>
       <label>
         Ciudad: 
-        <input type="text" name="ciudad" onChange={handleChange} />
+        <input type="text" name="ciudad" onChange={handleChange}/>
       </label><br></br>
       <label>
         Dirección:  
@@ -64,6 +70,8 @@ function agregarParqueadero() {
       <button type="submit">GUARDAR</button>
       <p><a href="/reserva">vista reserva</a></p>
     </form>
+    </div>
+    </div>
     </div>
   );
 }

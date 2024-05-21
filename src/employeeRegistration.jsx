@@ -1,13 +1,15 @@
 import React from 'react';
 import logo from './assets/img/logo.png';
 
+
+
 import { useNavigate } from 'react-router-dom';
 
 const EmployeeRegistration = () => {
-    const navigate = useNavigate(); // Get useNavigate hook instance
+    const navigate = useNavigate(); 
 
 const handleLoginClick = () => {
-    navigate('/inise'); // Navigate to '/inise' when clicked
+    navigate('/inise'); 
 };
     return (
         
@@ -33,6 +35,10 @@ const handleLoginClick = () => {
             </div>
         </div>
     );
+};
+
+export const handleLoginClick = (navigate) => {
+    navigate('/inise');
 };
 
 export default EmployeeRegistration;

@@ -6,64 +6,62 @@ body, html {
   overflow-x: hidden;
 }
 
-.employeeRegistration {
-  background: linear-gradient(90deg, hsla(33, 98%, 51%, 1) 0%, hsla(49, 100%, 65%, 1) 40%);
-  padding: 20px;
-  min-height: 100vh;
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  box-sizing: border-box;
-  position: relative;
-}
+.Login {
+    background: radial-gradient(circle, hsla(180, 46%, 87%, 1) 0%, hsla(198, 69%, 89%, 1) 100%);
+    padding: 20px;
+    min-height: 100vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    box-sizing: border-box;
+    position: relative;
+  }
 
-.logo-container {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-}
+  .logocontainer {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-.logo {
-  max-width: 400px;
-  height: auto;
-  max-height: 400px;
-}
-.form-container {
-  height: 330px;
-  position: relative;
-  z-index: 1;
-  padding: 4vw;
-  border-radius: 1vw; 
-  overflow: hidden;
-  background-color: rgba(255, 239, 170, 0.747); 
-  backdrop-filter: blur(2vw);
-  font-family: "Quicksand", serif;
-  font-optical-sizing: auto;
-  font-weight: 10px;
-  font-style: normal;
-  width: 20%;
-  max-width: 600px; 
-  margin: 5% auto;
-  color:#531f1f;
-  text-align: center;
-}
+  .logo{
+      max-width: 400px;
+      height: auto;
+      max-height: 400px;
+  }
+  .formcontainer {
+    height: 240px;
+    position: relative;
+    z-index: 1;
+    padding: 4vw;
+    border-radius: 1vw; 
+    overflow: hidden;
+    background-color: rgba(175, 206, 205, 0.75); 
+    backdrop-filter: blur(2vw);
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-weight: 10px;
+    font-style: normal;
+    width: 20%;
+    max-width: 600px; 
+    margin: 5% auto;
+    color:#1f3653;
+    text-align: center;
+  }
+  .formcontent {
+    position: relative; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+  }
 
-.form-content {
-  position: relative; 
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); 
-}
-
-.form-container input[type="email"],
-.form-container input[type="text"],
-.form-container input[type="password"] {
+.formcontainer input[type="text"],
+.formcontainer input[type="password"] {
   border: none; 
-  border-bottom: 2px solid #531f1f; 
+  border-bottom: 2px solid #1f1f53; 
   background: transparent; 
   margin: 5px; 
   padding: 8px; 
@@ -74,9 +72,9 @@ body, html {
   
 }
 
-.form-container button[type="submit"] {
-  background-color: #ddda7b; 
-  color: #531f1f; 
+.formcontainer button[type="submit"] {
+  background-color: #1f1f53; 
+  color: #c6e5e5; 
   border: none;
   padding: 10px 20px; 
   cursor: pointer; 
@@ -86,14 +84,13 @@ body, html {
   font-family: "Quicksand", serif; 
   font-size: 16px; 
 }
-
-.form-container button[type="submit"]:hover {
-  background-color: #eeb83c; 
+.formcontainer button[type="submit"]:hover {
+  background-color: #3cb0ee; 
 }
 
-.rout-buttonER {
+.linkButton{
   background-color: transparent; 
-  color: #eeb83c; 
+  color: #1f1f53; 
   border: none;
   padding: 0; 
   cursor: pointer;
@@ -104,7 +101,6 @@ body, html {
   font-size: 18px;
   text-decoration: underline; 
 }
-
 
 @media screen and (max-width: 768px) and (min-width:100px){ /* Celulares */
   .form-container {
@@ -146,17 +142,5 @@ body, html {
     margin-bottom: 2vw;
   }
   
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
