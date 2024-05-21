@@ -40,32 +40,39 @@ const Home = () => {
 
       <div className={styles.BannerContainer}>
       <img src={camioneta} alt="Camioneta suzuki" className={styles.SuzukiImage} />
-          <p><h2>Parquea con facilidad en Colombia</h2></p><br />
-          <p><h3>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones</h3></p>
-          <button onClick={handleEmployeeRegistrationClick}>Únete ahora</button>
-          <button onClick={handleIniseClick}>Ingresa ahora</button>
+      <div className={styles.BannerText}>
+          <p><h2 className={styles.MainBannerText}>¡Parquea con facilidad en Colombia!</h2></p><br />
+          <p><h3 className={styles.SecondBannerText}>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones.</h3></p>
+          <div className={styles.BannerButtons}>
+          <button onClick={handleEmployeeRegistrationClick} className={styles.BannerButton}>Únete ahora</button>
+          <button onClick={handleIniseClick} className={styles.BannerButton}>Ingresa ahora</button>
+          </div>
+          </div>
         </div>
         
       
 | 
-      <div className="cta-grid">
-        <div>
-          <p><h2>¿Por qué elegirnos?</h2></p><br />
-          <p><h3>Ofrecemos una solución innovadora que le permite encontrar, reservar y pagar parqueaderos en todo Colombia desde la comodidad de su casa</h3></p>
+      <div className={styles.BottomPart}>
+      
+        <div className={styles.TextContainer}>
+          <p><h2 className={styles.TextConth2}>¿Por qué elegirnos?</h2></p><br />
+          <p><h3 className={styles.TextConth3}>Ofrecemos una solución innovadora que le permite encontrar, reservar y pagar parqueaderos en todo Colombia desde la comodidad de su casa.</h3></p>
         </div>
-        <div>
+        <div className={styles.smallBanners}>
+        <div className={styles.smallBanner}>
           <img src={dinero} alt="dinero" />
           <p><h2>Precios competitivos</h2></p><br />
         </div>
-        <div>
+        <div className={styles.smallBanner}>
         <img src={calendario} alt="calendario" />
           <p><h2>Cancelación gratis</h2></p><br />
         </div>
-        <div>
+        <div className={styles.smallBanner}>
         <img src={mano} alt="mano" />
           <p><h2>Amplia selección de parqueaderos</h2></p>
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -82,46 +82,163 @@ body, html {
     background-color: #bc5878;
   }
 
-.BannerContainer {
+  .BannerContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse; 
     align-items: center;
-    padding: 20px;
     background: linear-gradient(90deg, hsla(2, 70%, 43%, 1) 0%, hsla(24, 78%, 82%, 1) 100%);
     border-radius: 20px; 
     border-bottom-right-radius: 120px;
+    justify-content: space-between;
+    margin-top: 40px;
+    padding: 40px 60px;
   }
   
-.SuzukiImage {
-    width: 200px;
+  .SuzukiImage {
+    width: 300px;
     height: auto;
-    margin-bottom: 10px; 
-    margin-left: auto; 
-}
+    margin-left: 20px;
+  }
   
-@media (max-width: 768px) {
-    .logo {
-        width: 80px; 
-     }
-     .navLinks {
-        flex-direction: column; 
-        margin: 0; 
-      }
-      .navLinks a {
-        margin: 0 0 10px 0; 
-      }
-      .navLinks a:last-child {
-        margin-bottom: 0; 
-      }
-}
-      
-@media (max-width: 480px) {
-    .logo {
-        width: 60px; 
+  .BannerText {
+    margin: 0;
+    margin-left:20px;
+    font-family: "Quicksand",serif;
+    color:#f3f2ed;
+  }
+  .MainBannerText{
+    font-weight: 1000;
+    font-size: 200%;
+  }
+  .SecondBannerText{
+    font-weight: 300;
+  }
+
+  .BannerButtons {
+    display: flex;
+    gap: 10px; 
+    margin-top: 20px; 
+  }
+  .BannerButton {
+    background-color: #A91127;
+    color: #f3f2ed;
+    border: none;
+    padding: 10px 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: "Quicksand", serif;
+    font-weight: 600;
+    border-radius: 8%;
+  }
+  .BannerButton:hover {
+    background-color: #bc5878;
+  }
+  .TextConth2 {
+    font-family: "Quicksand", serif;
+    font-weight: 1000;
+    font-size: 200%;
+    margin: 0;
+    padding: 20px 0;
+    word-wrap: break-word;
+  }
+  
+  .TextConth3 {
+    font-family: "Quicksand", serif;
+    font-weight: 600;
+    font-size: 120%;
+    margin: 0;
+    padding: 20px 0;
+    word-wrap: break-word;
+  }
+  
+  .BottomPart {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Espacio entre los elementos principales */
+  }
+  
+  .TextContainer {
+    flex: 1 1 30%; /* Ocupa el 60% del contenedor padre */
+    padding-right: 20px; /* Espacio entre el texto y los pequeños banners */
+  }
+  
+  .smallBanners {
+    flex: 1 1 50%; /* Ocupa el 35% del contenedor padre */
+    display: flex;
+    flex-direction: row; /* Dispón los banners en una fila */
+    gap: 20px; /* Espacio entre los banners */
+    flex-wrap: wrap; /* Permite que los banners se ajusten en múltiples filas si es necesario */
+
+  }
+  
+  .smallBanner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f2ed;
+    box-shadow: 0px 0px 20px rgba(228, 136, 136, 0.4);
+    border-radius: 8%;
+    padding: 20px;
+    box-sizing: border-box;
+    max-width: 250px;
+    flex: 1 1 250px; /* Asegura que los banners tengan un ancho fijo */
+  }
+  
+  .smallBanner img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 10px;
+  }
+  
+  .bannerText {
+    text-align: center;
+    word-wrap: break-word;
+    width: 100%;
+  }
+  
+  .smallBanner h2, .smallBanner p {
+    margin: 0;
+    font-family: "Quicksand", serif;
+    font-weight: 400;
+    margin-top: 10px;
+    text-align: center; /* Centra el texto dentro de cada banner */
+  }
+  
+  @media (max-width: 768px) {
+    .BottomPart {
+      flex-direction: column;
+      align-items: center; /* Centra los elementos en dispositivos más pequeños */
     }
+  
+    .TextContainer, .smallBanners {
+      width: 100%; /* Ambos elementos ocupan el 100% del ancho en dispositivos más pequeños */
+      padding: 0 20px; /* Agrega espaciado a los lados en dispositivos más pequeños */
+    }
+  
+    .smallBanners {
+      flex-direction: row; /* Dispón los banners en una fila */
+      flex-wrap: wrap; /* Permite que los banners se ajusten en múltiples filas si es necesario */
+      justify-content: center; /* Centra los banners en dispositivos más pequeños */
+    }
+  
+    .smallBanner {
+      flex: 1 1 100%; /* Asegura que el banner ocupe todo el ancho disponible en dispositivos más pequeños */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo {
+      width: 60px;
+    }
+  
     .navLinks {
-        align-items: flex-start;
-      }
-}
-
-
+      align-items: flex-start;
+    }
+  }
+  
+  
+  
+  
+  
