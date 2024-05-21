@@ -1,5 +1,11 @@
 import React from 'react';
 import logo from './assets/img/logo.png';
+import camioneta from './assets/img/camioneta.png';
+import dinero from './assets/img/dinero.png';
+import calendario from './assets/img/calendario.png';
+import mano from './assets/img/mano.png';
+
+
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
@@ -24,7 +30,6 @@ const Home = () => {
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
         <a href="/somos">¿Quienes somos?</a>
-        <a href="#precios">Precios</a>
         <button onClick={handleReservationClick}>¡Reserva ahora!</button> {/* Adjusted button */}
       </nav>
 
@@ -37,7 +42,7 @@ const Home = () => {
         </div>
         <div className="cta-image">
           {/* Asegúrate de tener una imagen en tu proyecto para usar aquí */}
-          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+          <img src={camioneta} alt="Camioneta suzuki" />
         </div>
       </div>
 
@@ -45,19 +50,18 @@ const Home = () => {
         <div>
           <p><h2>¿Por qué elegirnos?</h2></p><br />
           <p><h3>Ofrecemos una solución innovadora que le permite encontrar, reservar y pagar parqueaderos en todo Colombia desde la comodidad de su casa</h3></p>
-          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
         </div>
         <div>
+          <img src={dinero} alt="dinero" />
           <p><h2>Precios competitivos</h2></p><br />
-          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
         </div>
         <div>
+        <img src={calendario} alt="calendario" />
           <p><h2>Cancelación gratis</h2></p><br />
-          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
         </div>
         <div>
+        <img src={mano} alt="mano" />
           <p><h2>Amplia selección de parqueaderos</h2></p>
-          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
         </div>
       </div>
     </div>

@@ -19,7 +19,6 @@ const Parqueadero = () => {
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
         <a href="/somos">¿Quienes somos?</a>
-        <a href="#precios">Precios</a>
         <button onClick={handleReservationClick}>¡Reserva ahora!</button>
       </nav>
       <h1>Información de Parqueaderos</h1>
