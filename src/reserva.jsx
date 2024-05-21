@@ -35,11 +35,11 @@ const reserva = () => {
           <input type="email" name="email" value={form.email} onChange={handleChange} required />
         </label><br />
         <label>
-          ID de Reserva:
+          Id de Reserva:
           <input type="text" name="idReserva" value={form.idReserva} onChange={handleChange} required />
         </label><br />
         <label>
-          ID de Parqueadero:
+          Id de Parqueadero:
           <input type="text" name="idParqueadero" value={form.idParqueadero} onChange={handleChange} required />
         </label><br />
         <label>

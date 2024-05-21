@@ -8,6 +8,7 @@ import Reserva from './reserva';
 import './EmployeeRegistration.css';
 import PasswordReset from './reiniciarPassword';
 import UserRecovery from './recuperarUsuario';
+import Factura from './factura';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -18,6 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/reserva" element={<Reserva />} />
       <Route path='/reinicioPassword' element={<PasswordReset />} />
       <Route path='/recuperarUsuario' element={<UserRecovery/>} />
+      <Route path='/factura' element={<Factura/>}/>
     </Routes> 
   </Router>
 );

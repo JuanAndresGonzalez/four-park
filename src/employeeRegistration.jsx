@@ -19,13 +19,13 @@ const handleLoginClick = () => {
             </div>
             <div className='form-container'>
             <div className='form-content'>
-                <h2>Regístrate/Funcionario</h2>
+                <h2>Regístrate</h2>
                 
                 <form>
                     <input type="email" placeholder="Correo Electrónico" required className='input-field' /><br />
+                    <input type="text" placeholder="Id Rol (1=Administrador/2=cliente)" required className='input-field' /><br />
                     <input type="text" placeholder="Nombre" required className='input-field'/><br />
                     <input type="text" placeholder="Apellido" required className='input-field' /><br />
-                    <input type="text" placeholder="Código" required /><br className='input-field' />
                     <input type="password" placeholder="Contraseña" required /><br className='input-field' /><br />
                     <button type="submit" className='registerF-button'>Regístrate</button>
                 </form>
