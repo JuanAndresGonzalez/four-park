@@ -3,11 +3,20 @@ import logo from './assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-    const navigate = useNavigate(); // Get useNavigate hook instance
-    
-}
+  const navigate = useNavigate(); // Get useNavigate hook instance
 
-const home = () => {
+  const handleReservationClick = () => {
+    navigate('/reserva'); // Navigate to the reserva view
+  };
+
+  const handleEmployeeRegistrationClick = () => {
+    navigate('/employeeRegistration'); // Navigate to the reserva view
+  };
+
+  const handleIniseClick = () => {
+    navigate('/inise'); // Navigate to the reserva view
+  };
+
   return (
     <div className="home">
       <nav>
@@ -16,14 +25,15 @@ const home = () => {
         <a href="#parqueaderos">Parqueaderos</a>
         <a href="#quienes-somos">¿Quienes somos?</a>
         <a href="#precios">Precios</a>
-        <a href="/reserva">¡Reserva ahora!</a>
+        <button onClick={handleReservationClick}>¡Reserva ahora!</button> {/* Adjusted button */}
       </nav>
 
       <div className="cta">
         <div className="cta-text">
           <p><h2>Parquea con facilidad en Colombia</h2></p><br />
           <p><h3>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones</h3></p>
-          <button>Únete ahora</button>
+          <button onClick={handleEmployeeRegistrationClick}>Únete ahora</button>
+          <button onClick={handleIniseClick}>Ingresa ahora</button>
         </div>
         <div className="cta-image">
           {/* Asegúrate de tener una imagen en tu proyecto para usar aquí */}
@@ -54,5 +64,4 @@ const home = () => {
   );
 };
 
-export default home;
-
+export default Home;
