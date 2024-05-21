@@ -1,47 +1,58 @@
 import React from 'react';
 import logo from './assets/img/logo.png';
+import { useNavigate } from 'react-router-dom';
 
-// Componente de la barra de navegación
-const NavBar = () => (
-  <nav>
-    <img src={logo} alt="Four Parking logo" />
-    <a href="/">Inicio  </a>
-    <a href="/parqueaderos">Parqueaderos  </a>
-    <a href="/quienes-somos">¿Quiénes Somos?  </a>
-    <a href="/precios">Precios  </a>
-    <button>¡Reserva Ahora! </button>
-  </nav>
-);
+const Home = () => {
+    const navigate = useNavigate(); // Get useNavigate hook instance
+    
+}
 
-// Componente de la sección de bienvenida
-const WelcomeSection = () => (
-  <section>
-    <h1>¡Parquea con facilidad en Colombia!</h1>
-    <p>Bienvenido a Four Parking; reserva tu espacio de estacionamiento en línea, sin complicaciones.</p>
-    <button>Únete ahora</button>
-  </section>
-);
+const home = () => {
+  return (
+    <div className="home">
+      <nav>
+        <img src={logo} alt="Four Parking logo" />
+        <a href="/">Inicio</a>
+        <a href="#parqueaderos">Parqueaderos</a>
+        <a href="#quienes-somos">¿Quienes somos?</a>
+        <a href="#precios">Precios</a>
+        <a href="/reserva">¡Reserva ahora!</a>
+      </nav>
 
-// Componente de la sección "¿Por qué elegirnos?"
-const WhyChooseUsSection = () => (
-  <section>
-    <h2>¿Por qué elegirnos?</h2>
-    <p>Ofrecemos una solución innovadora que le permite encontrar, reservar y pagar parqueaderos en toda Colombia desde la comodidad de su teléfono inteligente.</p>
-    <ul>
-      <li>Precios Competitivos</li>
-      <li>Cancelación gratis</li>
-      <li>Amplia selección de parqueaderos</li>
-    </ul>
-  </section>
-);
+      <div className="cta">
+        <div className="cta-text">
+          <p><h2>Parquea con facilidad en Colombia</h2></p><br />
+          <p><h3>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones</h3></p>
+          <button>Únete ahora</button>
+        </div>
+        <div className="cta-image">
+          {/* Asegúrate de tener una imagen en tu proyecto para usar aquí */}
+          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+        </div>
+      </div>
 
-// Componente principal de la aplicación
-const App = () => (
-  <div>
-    <NavBar />
-    <WelcomeSection />
-    <WhyChooseUsSection />
-  </div>
-);
+      <div className="cta-grid">
+        <div>
+          <p><h2>¿Por qué elegirnos?</h2></p><br />
+          <p><h3>Ofrecemos una solución innovadora que le permite encontrar, reservar y pagar parqueaderos en todo Colombia desde la comodidad de su casa</h3></p>
+          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+        </div>
+        <div>
+          <p><h2>Precios competitivos</h2></p><br />
+          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+        </div>
+        <div>
+          <p><h2>Cancelación gratis</h2></p><br />
+          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+        </div>
+        <div>
+          <p><h2>Amplia selección de parqueaderos</h2></p>
+          <img src="/ruta/a/tu/imagen.jpg" alt="Descripción de la imagen" />
+        </div>
+      </div>
+    </div>
+  );
+};
 
-export default App;
+export default home;
+

@@ -9,17 +9,19 @@ import './EmployeeRegistration.css';
 import PasswordReset from './reiniciarPassword';
 import UserRecovery from './recuperarUsuario';
 import Factura from './factura';
+import Home from './homepage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
-      <Route path="/" element={<EmployeeRegistration />} />
+      <Route path="/employeeRegistration" element={<EmployeeRegistration />} />
       <Route path="/inise" element={<Inise />} />
       <Route path="/agregarParqueadero" element={<AgregarParqueadero />} />
       <Route path="/reserva" element={<Reserva />} />
       <Route path='/reinicioPassword' element={<PasswordReset />} />
       <Route path='/recuperarUsuario' element={<UserRecovery/>} />
       <Route path='/factura' element={<Factura/>}/>
+      <Route path='/' element={<Home/>}/>
     </Routes> 
   </Router>
 );
