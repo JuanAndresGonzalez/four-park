@@ -40,32 +40,44 @@ function agregarParqueadero() {
     <div className={styles.formcontent}>
     <form onSubmit={handleSubmit}>
       <label>
-        Ciudad: 
-        <input type="text" name="ciudad" onChange={handleChange}/>
+        Id del parqueadero
+        <input type="number" name="idparqueadero" onChange={handleChange}/>
       </label><br></br>
       <label>
-        Dirección:  
-        <input type="text" name="direccion" onChange={handleChange} />
+        Id de la ciudad  
+        <input type="number" name="idciudad" onChange={handleChange} />
       </label><br></br>
       <label>
-        Capacidad:  
-        <input type="text" name="capacidad" onChange={handleChange} />
+        Id de la disponibilidad 
+        <input type="number" name="iddisponibilidad" onChange={handleChange} />
       </label><br></br>
       <label>
-        Horario:    
-        <input type="text" name="horario" onChange={handleChange} />
+        Id del tipo
+        <input type="number" name="idtipo" onChange={handleChange} />
       </label><br></br>
       <label>
-        Teléfono:   
-        <input type="text" name="telefono" onChange={handleChange} />
+        Nombre del parqueadero  
+        <input type="text" name="nombreparqueadero" onChange={handleChange} />
       </label><br></br>
       <label>
-        E-mail: 
-        <input type="text" name="email" onChange={handleChange} />
+        Cantidad de espacios
+        <input type="number" name="cantidadespacios" onChange={handleChange} />
       </label><br></br>
       <label>
-        Código: 
-        <input type="text" name="codigo" onChange={handleChange} />
+        Precio por minuto (MOTO)
+        <input type="text" name="preciomoto" onChange={handleChange} />
+      </label><br></br>
+      <label>
+        Precio por minuto (CARRO)
+        <input type="text" name="preciocarro" onChange={handleChange} />
+      </label><br></br>
+      <label>
+        Tarifa (MOTO)
+        <input type="text" name="tarifamoto" onChange={handleChange} />
+      </label><br></br>
+      <label>
+        Tarifa (CARRO)
+        <input type="text" name="tarifacarro" onChange={handleChange} />
       </label><br></br>
       <button type="submit">GUARDAR</button>
       <p><a href="/reserva">vista reserva</a></p>
