@@ -46,7 +46,7 @@ const reserva = () => {
           Espacio Asignado:
           <input type="text" name="espacioAsignado" value={form.espacioAsignado} onChange={handleChange} required />
         </label><br />
-        <button type="submit">Enviar</button>
+        <button type="submit">Guardar</button>
       </form>
     </div>
   );
