@@ -18,7 +18,7 @@ const Parqueadero = () => {
         <img src={logo} alt="Four Parking logo" />
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
-        <a href="#quienes-somos">¿Quienes somos?</a>
+        <a href="/somos">¿Quienes somos?</a>
         <a href="#precios">Precios</a>
         <button onClick={handleReservationClick}>¡Reserva ahora!</button>
       </nav>

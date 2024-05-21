@@ -11,6 +11,7 @@ import UserRecovery from './recuperarUsuario';
 import Factura from './factura';
 import Home from './homepage';
 import Parqueadero from './parqueadero';
+import Somos from './somos';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/factura' element={<Factura/>}/>
       <Route path='/' element={<Home/>}/>
       <Route path='/parqueadero' element={<Parqueadero/>}/>
+      <Route path='/somos' element={<Somos/>}/>
     </Routes> 
   </Router>
 );
