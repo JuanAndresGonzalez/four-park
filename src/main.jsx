@@ -10,6 +10,7 @@ import PasswordReset from './reiniciarPassword';
 import UserRecovery from './recuperarUsuario';
 import Factura from './factura';
 import Home from './homepage';
+import Parqueadero from './parqueadero';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/recuperarUsuario' element={<UserRecovery/>} />
       <Route path='/factura' element={<Factura/>}/>
       <Route path='/' element={<Home/>}/>
+      <Route path='/parqueadero' element={<Parqueadero/>}/>
     </Routes> 
   </Router>
 );
