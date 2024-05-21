@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
+import  './Reserva.css'; // Import the CSS file
+import logo from './assets/img/logo.png';
 
 const Reserva = () => {
     const navigate = useNavigate(); // Get useNavigate hook instance
@@ -27,27 +28,52 @@ const reserva = () => {
   };
 
   return (
-    <div>
-      <h2>Formulario de Reserva</h2>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Email:
-          <input type="email" name="email" value={form.email} onChange={handleChange} required />
-        </label><br />
-        <label>
-          Id de Reserva:
-          <input type="text" name="idReserva" value={form.idReserva} onChange={handleChange} required />
-        </label><br />
-        <label>
-          Id de Parqueadero:
-          <input type="text" name="idParqueadero" value={form.idParqueadero} onChange={handleChange} required />
-        </label><br />
-        <label>
-          Espacio Asignado:
-          <input type="text" name="espacioAsignado" value={form.espacioAsignado} onChange={handleChange} required />
-        </label><br />
-        <button type="submit">Guardar</button>
-      </form>
+    <div className="reserva">
+      <img src={logo} alt="Four Parking logo" />
+      <div className="formcontainer">
+        <div className="formcontent">
+          <h2>Formulario de Reserva</h2>
+          <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="email"
+                placeholder='Correo Electrónico'
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+            <br />
+              <input
+                type="text"
+                name="idReserva"
+                placeholder='ID de Reserva'
+                value={form.idReserva}
+                onChange={handleChange}
+                required 
+              />
+            <br />
+              <input
+                type="text"
+                name="idParqueadero"
+                placeholder='Id de parqueadero'
+                value={form.idParqueadero}
+                onChange={handleChange}
+                required
+              />
+            <br />
+              <input
+                type="text"
+                name="espacioAsignado"
+                placeholder='Espacio Asignado'
+                value={form.espacioAsignado}
+                onChange={handleChange}
+                required
+              />
+            <br />
+            <button type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
