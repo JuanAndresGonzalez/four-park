@@ -45,15 +45,6 @@ const reserva = () => {
             <br />
               <input
                 type="text"
-                name="idReserva"
-                placeholder='ID de Reserva'
-                value={form.idReserva}
-                onChange={handleChange}
-                required 
-              />
-            <br />
-              <input
-                type="text"
                 name="idParqueadero"
                 placeholder='Id de parqueadero'
                 value={form.idParqueadero}
