@@ -80,9 +80,6 @@ function agregarParqueadero() {
         <input type="text" name="tarifacarro" onChange={handleChange} />
       </label><br></br>
       <button type="submit">GUARDAR</button>
-      <p><a href="/factura">vista factura</a></p>
-      <p><a href="/reserva">vista reserva</a></p>
-      
     </form>
     </div>
     </div>
