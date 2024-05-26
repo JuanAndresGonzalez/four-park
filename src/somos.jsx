@@ -12,13 +12,15 @@ const Somos = () => {
 
   return (
     <div className={styles.Somos}>
-      <nav className={styles.nav}>
-        <img src={logo} alt="Four Parking logo" className={styles.logo} />
+      <nav>
+       <div className={styles.logocontainer}>
+        <img src={logo} alt="Four Parking logo" className={styles.logo}/>
+        </div>
         <div className={styles.navLinks}>
-          <a href="/">Inicio</a>
-          <a href="/parqueadero">Parqueaderos</a>
-          <a href="/somos">¿Quienes somos?</a>
-          <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button>
+        <a href="/">Inicio</a>
+        <a href="/parqueadero">Parqueaderos</a>
+        <a href="/somos">¿Quiénes somos?</a>
+        <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button> 
         </div>
       </nav>
       <div className={styles.BannerContainer}>

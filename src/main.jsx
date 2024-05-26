@@ -12,6 +12,7 @@ import Factura from './factura';
 import Home from './homepage';
 import Parqueadero from './parqueadero';
 import Somos from './somos';
+import EmploRegister from './emploRegister';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -26,6 +27,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/' element={<Home/>}/>
       <Route path='/parqueadero' element={<Parqueadero/>}/>
       <Route path='/somos' element={<Somos/>}/>
+      <Route path='/emploRegister' element={<EmploRegister/>}/>
     </Routes> 
   </Router>
 );

@@ -25,7 +25,6 @@ const handleLoginClick = () => {
                     <input type="password" placeholder="Contraseña" required /><br className='input-field' /><br />
                     <button type="submit" className='registerF-button'>Regístrate</button>
                 </form>
-               
                 <p>¿Ya tienes una cuenta? <button onClick={handleLoginClick} className='rout-buttonER'>Inicia sesión</button></p>
                 </div>
             </div>
