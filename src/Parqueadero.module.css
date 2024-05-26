@@ -1,0 +1,154 @@
+/* Parqueadero.module.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Slab:wght@100..900&display=swap');
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+.parqueadero {
+  background-color: #f3f2ed;
+  padding: 20px;
+  min-height: 100vh;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.logo {
+  width: 300px; 
+  height: auto;
+  max-width: 100%;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: #121214;
+  border: none;
+  cursor: pointer;
+  font-family: "Quicksand", serif;
+  font-size: 18px;
+  text-decoration: none;
+}
+
+.navLinks a {
+  color: #121214; 
+  margin-right: 10px; 
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.navLinks a:last-child {
+  margin-right: 0; 
+}
+
+.Reservationbutton {
+  background-color: #A91127;
+  color: #f3f2ed;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: "Quicksand", serif;
+  font-weight: 600;
+  border-radius: 6%;
+}
+
+.Reservationbutton:hover {
+  background-color: #bc5878;
+}
+
+.BannerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #add8e6; /* Azul clarito */
+  border-radius: 20px;
+  width: 80%; /* Ajusta el ancho del contenedor */
+  max-width: 1000px; /* Máximo ancho del contenedor */
+  padding: 20px;
+  margin: 20px auto; /* Centra el contenedor horizontalmente */
+  text-align: center; /* Centra el texto */
+}
+
+.BannerText {
+  font-family: "Quicksand", serif;
+  color: #121214;
+  width: 100%;
+}
+
+.MainBannerText {
+  font-weight: 1000;
+  font-size: 1.5em; /* Tamaño del texto principal */
+  margin-bottom: 10px; /* Reduce el margen inferior */
+}
+
+.SecondBannerText {
+  font-weight: 300;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Quicksand", serif;
+}
+
+.tableContainer th,
+.tableContainer td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.tableContainer th {
+  background-color: #f3f2ed;
+  font-weight: bold;
+  text-align: center;
+}
+
+.tableContainer tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tableContainer tr:hover {
+  background-color: #ddd;
+}
+
+.tableContainer td {
+  text-align: center;
+}
+
+.mapContainer {
+  width: 100%;
+  height: 400px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .tableContainer {
+    width: 100%;
+    padding: 0 10px;
+  }
+}
