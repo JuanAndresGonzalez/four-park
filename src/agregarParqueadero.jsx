@@ -28,7 +28,10 @@ const AgregarParqueadero = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
+  };
+
+  const handleBackClick = () => {
+    navigate('/gerente'); 
   };
 
   return (
@@ -52,6 +55,7 @@ const AgregarParqueadero = () => {
             <input type="number" placeholder="Tarifa plena (CARRO)" name="tarifacarro" onChange={handleChange} /><br />
             <button type="submit">GUARDAR</button>
           </form>
+          <p><button type="button" onClick={handleBackClick} className={styles.linkButton}>Volver</button></p>
         </div>
       </div>
     </div>

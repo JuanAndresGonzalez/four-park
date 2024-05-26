@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const EmploRegister = () => {
+  const navigate = useNavigate();
   const [input, setInput] = useState({
     email: "",
     nombre: "",
@@ -17,6 +19,10 @@ const EmploRegister = () => {
     e.preventDefault();
   };
 
+  const handleBackingClick = () => {
+    navigate('/gerente'); 
+  };
+
   return (
     <div>
         <h2>Registro de Empleados</h2>
@@ -27,6 +33,7 @@ const EmploRegister = () => {
             <input type="password" placeholder="Contraseña" required /><br className='input-field' /><br />
             <button type="submit" className='registerF-button'>Registrar</button>
         </form>
+        <p><button type="button" onClick={handleBackingClick}>Volver</button></p>
     </div>
   );
 };
