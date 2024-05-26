@@ -10,5 +10,4 @@ function Gerente() {
     </div>
   );
 }
-
 export default Gerente;

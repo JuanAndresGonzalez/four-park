@@ -4,18 +4,19 @@ import styles from './AddParking.module.css';
 import logo from './assets/img/logo.png';
 
 const AgregarParqueadero = () => {
-    const navigate = useNavigate();
-}
+  const navigate = useNavigate();
 
-function agregarParqueadero() {
   const [form, setForm] = useState({
-    ciudad: '',
-    direccion: '',
-    capacidad: '',
-    horario: '',
-    telefono: '',
-    email: '',
-    codigo: ''
+    idparqueadero: '',
+    idciudad: '',
+    iddisponibilidad: '',
+    idtipo: '',
+    nombreparqueadero: '',
+    cantidadespacios: '',
+    preciomoto: '',
+    preciocarro: '',
+    tarifamoto: '',
+    tarifacarro: ''
   });
 
   const handleChange = e => {
@@ -32,59 +33,29 @@ function agregarParqueadero() {
 
   return (
     <div className={styles.AddParking}>
-    <div className={styles.logocontainer}>
-      <img src={logo} alt='Four Parking Logo' className={styles.logo} />
-    </div>
-        <h1>Agregar nuevo parqueadero</h1>
-    <div className={styles.formcontainer}>
-    <div className={styles.formcontent}>
-    <form onSubmit={handleSubmit}>
-      <label>
-        Id del parqueadero
-        <input type="number" name="idparqueadero" onChange={handleChange}/>
-      </label><br></br>
-      <label>
-        Id de la ciudad  
-        <input type="number" name="idciudad" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Id de la disponibilidad 
-        <input type="number" name="iddisponibilidad" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Id del tipo
-        <input type="number" name="idtipo" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Nombre del parqueadero  
-        <input type="text" name="nombreparqueadero" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Cantidad de espacios
-        <input type="number" name="cantidadespacios" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Precio por minuto (MOTO)
-        <input type="text" name="preciomoto" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Precio por minuto (CARRO)
-        <input type="text" name="preciocarro" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Tarifa (MOTO)
-        <input type="text" name="tarifamoto" onChange={handleChange} />
-      </label><br></br>
-      <label>
-        Tarifa (CARRO)
-        <input type="text" name="tarifacarro" onChange={handleChange} />
-      </label><br></br>
-      <button type="submit">GUARDAR</button>
-    </form>
-    </div>
-    </div>
+      <div className={styles.logocontainer}>
+        <img src={logo} alt="Four Parking logo" className={styles.logo} />
+      </div>
+      <div className={styles.formcontainer}>
+        <div className={styles.formcontent}>
+          <h2>Agregar un parqueadero</h2>
+          <form onSubmit={handleSubmit}>
+            <input type="number" placeholder="Id del parqueadero" name="idparqueadero" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id de la ciudad"name="idciudad" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id de la disponibilidad" name="iddisponibilidad" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id del tipo" name="idtipo" onChange={handleChange} /><br />
+            <input type="text" placeholder="Nombre del parqueadero" name="nombreparqueadero" onChange={handleChange} /><br />
+            <input type="number" placeholder="Cantidad de espacios" name="cantidadespacios" onChange={handleChange} /><br />
+            <input type="number" placeholder="Precio por minuto (MOTO)" name="preciomoto" onChange={handleChange} /><br />
+            <input type="number" placeholder="Precio por minuto (CARRO)" name="preciocarro" onChange={handleChange} /><br />
+            <input type="number" placeholder="Tarifa plena (MOTO)" name="tarifamoto" onChange={handleChange} /><br />
+            <input type="number" placeholder="Tarifa plena (CARRO)" name="tarifacarro" onChange={handleChange} /><br />
+            <button type="submit">GUARDAR</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
 
-export default agregarParqueadero;
+export default AgregarParqueadero;

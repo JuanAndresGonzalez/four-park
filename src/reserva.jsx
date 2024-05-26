@@ -34,33 +34,9 @@ const reserva = () => {
         <div className="formcontent">
           <h2>Formulario de Reserva</h2>
           <form onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="email"
-                placeholder='Correo Electrónico'
-                value={form.email}
-                onChange={handleChange}
-                required
-              />
-            <br />
-              <input
-                type="text"
-                name="idParqueadero"
-                placeholder='Id de parqueadero'
-                value={form.idParqueadero}
-                onChange={handleChange}
-                required
-              />
-            <br />
-              <input
-                type="text"
-                name="espacioAsignado"
-                placeholder='Espacio Asignado'
-                value={form.espacioAsignado}
-                onChange={handleChange}
-                required
-              />
-            <br />
+            <input type="text" name="email"  placeholder='Correo Electrónico' value={form.email} onChange={handleChange} required/><br />
+            <input type="text" name="idParqueadero" placeholder='Id de parqueadero' value={form.idParqueadero} onChange={handleChange} required/><br />
+            <input type="text" name="espacioAsignado" placeholder='Espacio Asignado' value={form.espacioAsignado} onChange={handleChange} required/><br />
             <button type="submit">Guardar</button>
           </form>
         </div>
