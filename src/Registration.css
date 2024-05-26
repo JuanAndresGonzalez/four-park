@@ -6,7 +6,7 @@ body, html {
   overflow-x: hidden;
 }
 
-.employeeRegistration {
+.registration {
   background: linear-gradient(90deg, hsla(33, 98%, 51%, 1) 0%, hsla(49, 100%, 65%, 1) 40%);
   padding: 20px;
   min-height: 100vh;

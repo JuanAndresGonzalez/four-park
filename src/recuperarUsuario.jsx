@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './assets/img/logo.png';
-import { handleLoginClick } from './employeeRegistration';
+import { handleLoginClick } from './registration';
 import styles from './userRecovery.module.css';
 import { useNavigate } from 'react-router-dom';
 

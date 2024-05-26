@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import EmployeeRegistration from './employeeRegistration';
+import Registration from './registration';
 import Inise from './inise';
 import AgregarParqueadero from './agregarParqueadero';
 import Reserva from './reserva';
-import './EmployeeRegistration.css';
+import './Registration.css';
 import PasswordReset from './reiniciarPassword';
 import UserRecovery from './recuperarUsuario';
 import Factura from './factura';
@@ -16,7 +16,7 @@ import Somos from './somos';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
     <Routes>
-      <Route path="/employeeRegistration" element={<EmployeeRegistration />} />
+      <Route path="/registration" element={<Registration />} />
       <Route path="/inise" element={<Inise />} />
       <Route path="/agregarParqueadero" element={<AgregarParqueadero />} />
       <Route path="/reserva" element={<Reserva />} />

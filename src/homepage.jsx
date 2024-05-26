@@ -16,8 +16,8 @@ const Home = () => {
     navigate('/reserva'); // Navigate to the reserva view
   };
 
-  const handleEmployeeRegistrationClick = () => {
-    navigate('/employeeRegistration'); // Navigate to the reserva view
+  const handleRegistrationClick = () => {
+    navigate('/registration'); // Navigate to the reserva view
   };
 
   const handleIniseClick = () => {
@@ -44,7 +44,7 @@ const Home = () => {
           <p><h2 className={styles.MainBannerText}>¡Parquea con facilidad en Colombia!</h2></p><br />
           <p><h3 className={styles.SecondBannerText}>Bienvenido a FourPark, reserva tu espacio de estacionamiento en línea, sin complicaciones.</h3></p>
           <div className={styles.BannerButtons}>
-          <button onClick={handleEmployeeRegistrationClick} className={styles.BannerButton}>Únete ahora</button>
+          <button onClick={handleRegistrationClick} className={styles.BannerButton}>Únete ahora</button>
           <button onClick={handleIniseClick} className={styles.BannerButton}>Ingresa ahora</button>
           </div>
           </div>

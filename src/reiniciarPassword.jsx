@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './assets/img/logo.png';
 import styles from './PasswordReset.module.css';
-import {handleLoginClick} from './employeeRegistration';
+import {handleLoginClick} from './registration';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 const PasswordReset = () => {
