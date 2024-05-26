@@ -17,7 +17,6 @@ const handleLoginClick = () => {
             <div className='form-container'>
             <div className='form-content'>
                 <h2>Regístrate</h2>
-                
                 <form>
                     <input type="email" placeholder="Correo Electrónico" required className='input-field' /><br />
                     <input type="text" placeholder="Nombre" required className='input-field'/><br />
