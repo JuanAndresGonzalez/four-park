@@ -28,7 +28,21 @@ tarifaCarroPorMinuto: 100,
 tarifaPlenaMoto: 5000,
 tarifaPlenaCarro: 10000,
 coordenadas: [4.7110, -74.0721]
-   }
+   },{
+    nombre: "Parqueadero B",
+    ciudad: "Bogotá",
+    direccion: "Calle 120 #45-67",
+    cantidadEspacios: 50,
+    tipo: "Cubierto",
+    horaApertura: "6:00 AM",
+    horaCierre: "10:00 PM",
+    tarifaMotoPorMinuto: 50,
+    tarifaCarroPorMinuto: 100,
+    tarifaPlenaMoto: 5000,
+    tarifaPlenaCarro: 10000,
+    coordenadas: [2.7110, -70.0721]
+       }
+   
   ];
 
   return (
