@@ -13,6 +13,7 @@ import Home from './homepage';
 import Parqueadero from './parqueadero';
 import Somos from './somos';
 import EmploRegister from './emploRegister';
+import Gerente from './gerente';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Router>
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path='/parqueadero' element={<Parqueadero/>}/>
       <Route path='/somos' element={<Somos/>}/>
       <Route path='/emploRegister' element={<EmploRegister/>}/>
+      <Route path='/gerente' element={<Gerente/>}/>
     </Routes> 
   </Router>
 );
