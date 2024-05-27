@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { useNavigate } from 'react-router-dom';
+import './Factura.css';
 
 const Factura = () => {
     const navigate = useNavigate(); // Get useNavigate hook instance

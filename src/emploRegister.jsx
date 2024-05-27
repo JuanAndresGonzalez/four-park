@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom';
+import './EmploRegister.css'; // Asegúrate de importar el archivo CSS
 
 const EmploRegister = () => {
   const navigate = useNavigate();
@@ -24,16 +25,50 @@ const EmploRegister = () => {
   };
 
   return (
-    <div>
-        <h2>Registro de Empleados</h2>
-        <form>
-            <input type="email" placeholder="Correo Electrónico" required className='input-field' /><br />
-            <input type="text" placeholder="Nombre" required className='input-field'/><br />
-            <input type="text" placeholder="Apellido" required className='input-field' /><br />
-            <input type="password" placeholder="Contraseña" required /><br className='input-field' /><br />
-            <button type="submit" className='registerF-button'>Registrar</button>
-        </form>
-        <p><button type="button" onClick={handleBackingClick}>Volver</button></p>
+    <div className="reserva">
+        <div className="formcontainer">
+            <h2>Registro de Empleados</h2>
+            <form onSubmit={handleSubmit} className="formcontent">
+                <input 
+                  type="email" 
+                  name="email" 
+                  placeholder="Correo Electrónico" 
+                  required 
+                  className='input-field' 
+                  value={input.email} 
+                  onChange={handleInput} 
+                />
+                <input 
+                  type="text" 
+                  name="nombre" 
+                  placeholder="Nombre" 
+                  required 
+                  className='input-field' 
+                  value={input.nombre} 
+                  onChange={handleInput} 
+                />
+                <input 
+                  type="text" 
+                  name="apellido" 
+                  placeholder="Apellido" 
+                  required 
+                  className='input-field' 
+                  value={input.apellido} 
+                  onChange={handleInput} 
+                />
+                <input 
+                  type="password" 
+                  name="contraseña" 
+                  placeholder="Contraseña" 
+                  required 
+                  className='input-field' 
+                  value={input.contraseña} 
+                  onChange={handleInput} 
+                />
+                <button type="submit" className='registerF-button'>Registrar</button>
+                <button type="button" className="linkButton" onClick={handleBackingClick}>Volver</button>
+            </form>
+        </div>
     </div>
   );
 };
