@@ -51,14 +51,16 @@ coordenadas: [4.7110, -74.0721]
 
   return (
     <div className={styles.parqueadero}>
-      <nav className={styles.nav}>
-        <img src={logo} alt="Four Parking logo" className={styles.logo} />
+      <nav>
+        <div className={styles.logocontainer}>
+        <img src={logo} alt="Four Parking logo" className={styles.logo}/>
+        </div>
         <div className={styles.navLinks}>
-          <a href="/">Inicio</a>
-          <a href="/parqueadero">Parqueaderos</a>
-          <a href="/somos">¿Quienes somos?</a>
-          <button onClick={handleGerenteClick} className={styles.Gerentebutton}>Acceso Gerente</button>
-          <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button>
+        <a href="/">Inicio</a>
+        <a href="/parqueadero">Parqueaderos</a>
+        <a href="/somos">¿Quiénes somos?</a>
+        <button onClick={handleGerenteClick} className={styles.Gerentebutton}>Acceso Gerente</button> 
+        <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button> 
         </div>
       </nav>
       <div className={styles.BannerContainer}>
