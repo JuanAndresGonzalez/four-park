@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import styles from './AddParking.module.css';
+import logo from './assets/img/logo.png';
 
-function ModificarParqueadero() {
+const AgregarParqueadero = () => {
+  const navigate = useNavigate();
+
   const [form, setForm] = useState({
-    ciudad: '',
-    direccion: '',
-    capacidad: '',
-    horario: '',
-    telefono: '',
-    email: '',
-    codigo: ''
+    idparqueadero: '',
+    idciudad: '',
+    iddisponibilidad: '',
+    idtipo: '',
+    nombreparqueadero: '',
+    cantidadespacios: '',
+    preciomoto: '',
+    preciocarro: '',
+    tarifamoto: '',
+    tarifacarro: ''
   });
 
   const handleChange = e => {
@@ -20,43 +28,38 @@ function ModificarParqueadero() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log(form);
+  };
+
+  const handleBackClick = () => {
+    navigate('/gerente'); 
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Modificar parqueadero</h1>
-      <label>
-        Ciudad:
-        <input type="text" name="ciudad" onChange={handleChange} />
-      </label><br />
-      <label>
-        Dirección:
-        <input type="text" name="direccion" onChange={handleChange} />
-      </label><br />
-      <label>
-        Capacidad:
-        <input type="text" name="capacidad" onChange={handleChange} />
-      </label><br />
-      <label>
-        Horario:
-        <input type="text" name="horario" onChange={handleChange} />
-      </label><br />
-      <label>
-        Teléfono:
-        <input type="text" name="telefono" onChange={handleChange} />
-      </label><br />
-      <label>
-        E-mail:
-        <input type="text" name="email" onChange={handleChange} />
-      </label><br />
-      <label>
-        Código:
-        <input type="text" name="codigo" onChange={handleChange} />
-      </label><br />
-      <button type="submit">GUARDAR</button>
-    </form>
+    <div className={styles.AddParking}>
+      <div className={styles.logocontainer}>
+        <img src={logo} alt="Four Parking logo" className={styles.logo} />
+      </div>
+      <div className={styles.formcontainer}>
+        <div className={styles.formcontent}>
+          <h2>Modificar un parqueadero existente</h2>
+          <form onSubmit={handleSubmit}>
+            <input type="number" placeholder="Id del parqueadero" name="idparqueadero" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id de la ciudad"name="idciudad" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id de la disponibilidad" name="iddisponibilidad" onChange={handleChange} /><br />
+            <input type="number" placeholder="Id del tipo" name="idtipo" onChange={handleChange} /><br />
+            <input type="text" placeholder="Nombre del parqueadero" name="nombreparqueadero" onChange={handleChange} /><br />
+            <input type="number" placeholder="Cantidad de espacios" name="cantidadespacios" onChange={handleChange} /><br />
+            <input type="number" placeholder="Precio por minuto (MOTO)" name="preciomoto" onChange={handleChange} /><br />
+            <input type="number" placeholder="Precio por minuto (CARRO)" name="preciocarro" onChange={handleChange} /><br />
+            <input type="number" placeholder="Tarifa plena (MOTO)" name="tarifamoto" onChange={handleChange} /><br />
+            <input type="number" placeholder="Tarifa plena (CARRO)" name="tarifacarro" onChange={handleChange} /><br />
+            <button type="submit">GUARDAR</button>
+          </form>
+          <p><button type="button" onClick={handleBackClick} className={styles.linkButton}>Volver</button></p>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default ModificarParqueadero;
+export default AgregarParqueadero;

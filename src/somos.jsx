@@ -10,16 +10,21 @@ const Somos = () => {
     navigate('/reserva'); // Navegar a la vista de reserva
   };
 
+  const handleGerenteClick = () => {
+    navigate('/gerente'); // Navegar a la vista de reserva
+  };
+
   return (
     <div className={styles.Somos}>
       <nav>
-       <div className={styles.logocontainer}>
+        <div className={styles.logocontainer}>
         <img src={logo} alt="Four Parking logo" className={styles.logo}/>
         </div>
         <div className={styles.navLinks}>
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
         <a href="/somos">¿Quiénes somos?</a>
+        <button onClick={handleGerenteClick} className={styles.Gerentebutton}>Acceso Gerente</button> 
         <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button> 
         </div>
       </nav>

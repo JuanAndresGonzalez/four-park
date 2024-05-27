@@ -21,12 +21,12 @@ body, html {
   position: relative;
 }
 
-.logocontainer {
+.logocontainer{
   position: absolute;
   top: 10px;
   left: 10px;
 }
-
+    
 .logo {
   width: 300px; 
   height: auto;
@@ -45,26 +45,26 @@ body, html {
   display: flex;
   align-items: center;
   background-color: transparent;
-  color: #121214;
+  color:#121214;
   border: none;
-  cursor: pointer;
+  cursor:pointer;
   font-family: "Quicksand", serif;
   font-size: 18px;
-  text-decoration: none;
+  text-decoration: none; 
 }
 
 .navLinks a {
-  color: #121214; 
-  margin-right: 10px; 
-  font-weight: 600;
-  text-decoration: none;
+color: #121214; 
+margin-right: 10px; 
+font-weight: 600;
+text-decoration: none;
 }
 
 .navLinks a:last-child {
   margin-right: 0; 
 }
 
-.Reservationbutton {
+.Reservationbutton{
   background-color: #A91127;
   color: #f3f2ed;
   border: none;
@@ -72,13 +72,32 @@ body, html {
   cursor: pointer;
   transition: background-color 0.3s;
   position: absolute; 
-  top: 10px; 
-  right: 20px;
+  top: 10px; /* Añadido */
+  right: 20px; /* Añadido */
   font-family: "Quicksand", serif;
   font-weight: 600;
   border-radius: 6%;
 }
 
+.Gerentebutton{
+  background-color: #A91127;
+  color: #f3f2ed;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  position: absolute; 
+  top: 10px; /* Añadido */
+  right: 165px; /* Añadido */
+  font-family: "Quicksand", serif;
+  font-weight: 600;
+  border-radius: 6%;
+}
+
+.Gerentebutton:hover {
+  background-color: #bc5878;
+}
+    
 .Reservationbutton:hover {
   background-color: #bc5878;
 }

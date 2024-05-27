@@ -22,6 +22,8 @@ function Gerente() {
       <div className="formcontainer">
         <h1>Panel del Gerente</h1>
         <button className="actionButton" onClick={() => navigateTo('/agregarParqueadero')}>Agregar un nuevo parqueadero</button><br />
+        <button className="actionButton" onClick={() => navigateTo('/modificarParqueadero')}>Modificar un parqueadero existente</button><br />
+        <button className="actionButton" onClick={() => navigateTo('/emploRegister')}>Eliminar un parqueadero</button><br />
         <button className="actionButton" onClick={() => navigateTo('/emploRegister')}>Registrar Empleado</button><br />
         <button className="actionButton" onClick={() => navigateTo('/ver-informe')}>Ver Informe</button>
         <p>
