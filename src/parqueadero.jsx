@@ -12,6 +12,10 @@ const Parqueadero = () => {
     navigate('/reserva'); // Navegar a la vista de reserva
   };
 
+  const handleGerenteClick = () => {
+    navigate('/gerente'); // Navegar a la vista de reserva
+  };
+
   // Ejemplo de datos de parqueaderos, puedes reemplazar esto con datos reales o una llamada a una API
   const parqueaderos = [
     // Agregar datos reales aquí
@@ -53,6 +57,7 @@ coordenadas: [4.7110, -74.0721]
           <a href="/">Inicio</a>
           <a href="/parqueadero">Parqueaderos</a>
           <a href="/somos">¿Quienes somos?</a>
+          <button onClick={handleGerenteClick} className={styles.Gerentebutton}>Acceso Gerente</button>
           <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button>
         </div>
       </nav>

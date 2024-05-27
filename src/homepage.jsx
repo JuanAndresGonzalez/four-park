@@ -20,6 +20,10 @@ const Home = () => {
     navigate('/registration'); // Navigate to the reserva view
   };
 
+  const handleGerenteClick = () => {
+    navigate('/gerente'); // Navigate to the reserva view
+  };
+
   const handleIniseClick = () => {
     navigate('/inise'); // Navigate to the reserva view
   };
@@ -34,6 +38,7 @@ const Home = () => {
         <a href="/">Inicio</a>
         <a href="/parqueadero">Parqueaderos</a>
         <a href="/somos">¿Quiénes somos?</a>
+        <button onClick={handleGerenteClick} className={styles.Gerentebutton}>Acceso Gerente</button> 
         <button onClick={handleReservationClick} className={styles.Reservationbutton}>¡Reserva ahora!</button> 
         </div>
       </nav>

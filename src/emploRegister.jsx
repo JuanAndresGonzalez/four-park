@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import logo from './assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
+
 import './EmploRegister.css'; // Asegúrate de importar el archivo CSS
 
 const EmploRegister = () => {
@@ -26,6 +28,9 @@ const EmploRegister = () => {
 
   return (
     <div className="reserva">
+      <div className='logo-container'>
+                <img src={logo} alt="Four Parking logo" className='logo' />
+            </div>
         <div className="formcontainer">
             <h2>Registro de Empleados</h2>
             <form onSubmit={handleSubmit} className="formcontent">

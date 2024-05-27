@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from './assets/img/logo.png';
 import { useNavigate } from 'react-router-dom';
 import './Gerente.css'; // Asegúrate de importar el archivo CSS
 
@@ -15,6 +16,9 @@ function Gerente() {
 
   return (
     <div className="gerente">
+      <div className='logo-container'>
+                <img src={logo} alt="Four Parking logo" className='logo' />
+            </div>
       <div className="formcontainer">
         <h1>Panel del Gerente</h1>
         <button className="actionButton" onClick={() => navigateTo('/agregarParqueadero')}>Agregar un nuevo parqueadero</button><br />
