@@ -53,9 +53,9 @@ const AgregarParqueadero = () => {
             <input type="number" placeholder="Precio por minuto (CARRO)" name="preciocarro" onChange={handleChange} /><br />
             <input type="number" placeholder="Tarifa plena (MOTO)" name="tarifamoto" onChange={handleChange} /><br />
             <input type="number" placeholder="Tarifa plena (CARRO)" name="tarifacarro" onChange={handleChange} /><br />
-            <button type="submit">GUARDAR</button>
-          </form>
+            <button type="submit">GUARDAR</button><br />
           <p><button type="button" onClick={handleBackClick} className={styles.linkButton}>Volver</button></p>
+          </form>
         </div>
       </div>
     </div>

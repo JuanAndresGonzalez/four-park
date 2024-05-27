@@ -70,7 +70,7 @@ const EmploRegister = () => {
                   value={input.contraseña} 
                   onChange={handleInput} 
                 />
-                <button type="submit" className='registerF-button'>Registrar</button>
+                <button type="submit" className='registerF-button'>Registrar</button><br />
                 <button type="button" className="linkButton" onClick={handleBackingClick}>Volver</button>
             </form>
         </div>

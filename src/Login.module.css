@@ -33,7 +33,7 @@ body, html {
       max-height: 400px;
   }
   .formcontainer {
-    height: 240px;
+    height: 250px;
     position: relative;
     z-index: 1;
     padding: 4vw;
@@ -136,7 +136,7 @@ body, html {
 @media screen and (min-width: 1024px) { /* Escritorio */
   .form-container {
     width: 27rem; 
-    height: 27rem;
+    height: 20rem;
     padding: 3vw; 
     border-radius: 1vw;
     backdrop-filter: blur(3vw); 
