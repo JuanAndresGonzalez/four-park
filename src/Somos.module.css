@@ -7,7 +7,7 @@ body, html {
   overflow-x: hidden;
 }
 
-.Somos {
+.Somos{
   background-color: #f3f2ed;
   padding: 20px;
   min-height: 100vh;
@@ -50,14 +50,14 @@ body, html {
   cursor:pointer;
   font-family: "Quicksand", serif;
   font-size: 18px;
-  text-decoration: none; 
+  text-decoration: none;
 }
 
 .navLinks a {
-color: #121214; 
-margin-right: 10px; 
-font-weight: 600;
-text-decoration: none;
+  color: #121214; 
+  margin-right: 10px; 
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .navLinks a:last-child {
@@ -97,7 +97,7 @@ text-decoration: none;
 .Gerentebutton:hover {
   background-color: #bc5878;
 }
-    
+  
 .Reservationbutton:hover {
   background-color: #bc5878;
 }
@@ -133,7 +133,3 @@ text-decoration: none;
 .SecondBannerText {
   font-weight: 300;
 }
-
-
-
-/* Rest of your CSS code remains unchanged */
