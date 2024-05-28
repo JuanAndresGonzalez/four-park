@@ -1,22 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/img/logo.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "../styles/Parqueadero.module.css";
 import { useNavigate } from "react-router-dom";
+import { FaTrashAlt } from "react-icons/fa"; // Import the delete icon
 
 const Parqueadero = () => {
   const navigate = useNavigate();
-
-  const handleReservationClick = () => {
-    navigate("/reserva");
-  };
-
-  const handleGerenteClick = () => {
-    navigate("/gerente");
-  };
-
-  const parqueaderos = [
+  const [parqueaderos, setParqueaderos] = useState([
     {
       nombre: "Parqueadero A",
       ciudad: "Bogotá",
@@ -45,7 +37,20 @@ const Parqueadero = () => {
       tarifaPlenaCarro: 10000,
       coordenadas: [2.711, -70.0721],
     },
-  ];
+  ]);
+
+  const handleReservationClick = () => {
+    navigate("/reserva");
+  };
+
+  const handleGerenteClick = () => {
+    navigate("/gerente");
+  };
+
+  const handleDelete = (index) => {
+    const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
+    setParqueaderos(newParqueaderos);
+  };
 
   return (
     <div className={styles.parqueadero}>
@@ -86,6 +91,7 @@ const Parqueadero = () => {
                   <th>Tarifa Carro por Minuto</th>
                   <th>Tarifa Plena Moto</th>
                   <th>Tarifa Plena Carro</th>
+                  <th></th> {/* Added column for actions */}
                 </tr>
               </thead>
               <tbody>
@@ -103,11 +109,19 @@ const Parqueadero = () => {
                       <td>{parqueadero.tarifaCarroPorMinuto}</td>
                       <td>{parqueadero.tarifaPlenaMoto}</td>
                       <td>{parqueadero.tarifaPlenaCarro}</td>
+                      <td>
+                        <button
+                          onClick={() => handleDelete(index)}
+                          className={styles.deleteButton}
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      </td>{" "}
                     </tr>
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="11">
+                    <td colSpan="12">
                       No hay datos de parqueaderos disponibles.
                     </td>
                   </tr>

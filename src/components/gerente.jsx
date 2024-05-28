@@ -14,6 +14,10 @@ function Gerente() {
     navigate(path);
   };
 
+  const handleDeleteButtonClick = () => {
+    navigate("/parqueadero");
+  };
+
   return (
     <div className={styles.gerente}>
       <div className={styles.logocontainer}>
@@ -37,15 +41,12 @@ function Gerente() {
         <br />
         <button
           className={styles.actionButton}
-          onClick={() => navigateTo("/emploRegister")}
+          onClick={handleDeleteButtonClick}
         >
           Eliminar un parqueadero
         </button>
         <br />
-        <button
-          className={styles.actionButton}
-          onClick={() => navigateTo("/emploRegister")}
-        >
+        <button className={styles.actionButton} onClick={() => navigateTo()}>
           Registrar Empleado
         </button>
         <br />
