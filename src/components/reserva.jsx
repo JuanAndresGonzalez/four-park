@@ -5,9 +5,7 @@ import logo from "../assets/img/logo.png";
 
 const Reserva = () => {
   const navigate = useNavigate();
-};
 
-const reserva = () => {
   const [form, setForm] = useState({
     email: "",
     idReserva: "",
@@ -27,9 +25,18 @@ const reserva = () => {
     console.log(form);
   };
 
+  const handleHomeButtonClick = () => {
+    navigate("/");
+  };
+
   return (
     <div className={styles.reserva}>
-      <img src={logo} alt="Four Parking logo" />
+      <img
+        src={logo}
+        alt="Four Parking logo"
+        className={styles.logo}
+        onClick={handleHomeButtonClick}
+      />
       <div className={styles.formcontainer}>
         <div className={styles.formcontent}>
           <h2>Formulario de Reserva</h2>
@@ -61,7 +68,8 @@ const reserva = () => {
               required
             />
             <br />
-            <button type="submit">Guardar</button>
+            <button type="submit">Pagar</button>
+            <button className={styles.homepagebutton}>Volver</button>
           </form>
         </div>
       </div>
@@ -69,4 +77,4 @@ const reserva = () => {
   );
 };
 
-export default reserva;
+export default Reserva;
