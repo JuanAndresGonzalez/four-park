@@ -1,43 +1,29 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/img/logo.png";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "../styles/Parqueadero.module.css";
 import { useNavigate } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa"; // Import the delete icon
+import { FaTrashAlt } from "react-icons/fa"; 
+import axios from "axios";
+import { client } from "../services/apirest"; // Import the Axios client
 
 const Parqueadero = () => {
   const navigate = useNavigate();
-  const [parqueaderos, setParqueaderos] = useState([
-    {
-      nombre: "Parqueadero A",
-      ciudad: "Bogotá",
-      direccion: "Calle 123 #45-67",
-      cantidadEspacios: 50,
-      tipo: "Cubierto",
-      horaApertura: "6:00 AM",
-      horaCierre: "10:00 PM",
-      tarifaMotoPorMinuto: 50,
-      tarifaCarroPorMinuto: 100,
-      tarifaPlenaMoto: 5000,
-      tarifaPlenaCarro: 10000,
-      coordenadas: [4.711, -74.0721],
-    },
-    {
-      nombre: "Parqueadero B",
-      ciudad: "Bogotá",
-      direccion: "Calle 120 #45-67",
-      cantidadEspacios: 50,
-      tipo: "Cubierto",
-      horaApertura: "6:00 AM",
-      horaCierre: "10:00 PM",
-      tarifaMotoPorMinuto: 50,
-      tarifaCarroPorMinuto: 100,
-      tarifaPlenaMoto: 5000,
-      tarifaPlenaCarro: 10000,
-      coordenadas: [2.711, -70.0721],
-    },
-  ]);
+  const [parqueaderos, setParqueaderos] = useState([]);
+
+  useEffect(() => {
+    const fetchParqueaderos = async () => {
+      try {
+        const response = await client.get("/api/parqueaderos");
+        setParqueaderos(response.data);
+      } catch (error) {
+        console.error("Error fetching parqueaderos:", error);
+      }
+    };
+
+    fetchParqueaderos();
+  }, []);
 
   const handleReservationClick = () => {
     navigate("/reserva");
@@ -47,9 +33,16 @@ const Parqueadero = () => {
     navigate("/gerente");
   };
 
-  const handleDelete = (index) => {
-    const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
-    setParqueaderos(newParqueaderos);
+  const handleDelete = async (index, id) => {
+    try {
+      const response = await client.delete(`/api/parqueaderos/${id}`);
+      if (response.status === 200) {
+        const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
+        setParqueaderos(newParqueaderos);
+      }
+    } catch (error) {
+      console.error("Error deleting parqueadero:", error);
+    }
   };
 
   return (
@@ -97,7 +90,7 @@ const Parqueadero = () => {
               <tbody>
                 {parqueaderos.length > 0 ? (
                   parqueaderos.map((parqueadero, index) => (
-                    <tr key={index}>
+                    <tr key={parqueadero.id}>
                       <td>{parqueadero.nombre}</td>
                       <td>{parqueadero.ciudad}</td>
                       <td>{parqueadero.direccion}</td>
@@ -111,7 +104,7 @@ const Parqueadero = () => {
                       <td>{parqueadero.tarifaPlenaCarro}</td>
                       <td>
                         <button
-                          onClick={() => handleDelete(index)}
+                          onClick={() => handleDelete(index, parqueadero.id)}
                           className={styles.deleteButton}
                         >
                           <FaTrashAlt />
@@ -142,8 +135,8 @@ const Parqueadero = () => {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
-          {parqueaderos.map((parqueadero, index) => (
-            <Marker key={index} position={parqueadero.coordenadas}>
+          {parqueaderos.map((parqueadero) => (
+            <Marker key={parqueadero.id} position={parqueadero.coordenadas}>
               <Popup>
                 <b>{parqueadero.nombre}</b>
                 <br />
