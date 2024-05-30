@@ -19,6 +19,7 @@ const EmploRegister = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Aquí puedes agregar la lógica para manejar el envío del formulario
   };
 
   const handleBackingClick = () => {
@@ -26,9 +27,9 @@ const EmploRegister = () => {
   };
 
   return (
-    <div className={styles.reserva}>
+    <div className={styles.EmploRegister}>
       <div className={styles.logocontainer}>
-        <img src={logo} alt="Four Parking logo" className="logo" />
+        <img src={logo} alt="Four Parking logo" className={styles.logo} />
       </div>
       <div className={styles.formcontainer}>
         <h2>Registro de Empleados</h2>
@@ -69,7 +70,7 @@ const EmploRegister = () => {
             value={input.contraseña}
             onChange={handleInput}
           />
-          <button type="submit" className={styles.registerFbutton}>
+          <button type="submit" className={styles.registerButton}>
             Registrar
           </button>
           <br />
