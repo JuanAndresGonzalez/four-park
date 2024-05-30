@@ -14,7 +14,7 @@ const Parqueadero = () => {
   useEffect(() => {
     const fetchParqueaderos = async () => {
       try {
-        const response = await client.get("/api/parqueaderos");
+        const response = await client.get("http://localhost:3000/api/parqueaderos");
         setParqueaderos(response.data);
       } catch (error) {
         console.error(
@@ -96,11 +96,11 @@ const Parqueadero = () => {
                   parqueaderos.map((parqueadero, index) => (
                     <tr key={parqueadero.id_parqueadero}>
                       <td>{parqueadero.nombre}</td>
-                      <td>{parqueadero.idciudad}</td>
+                      <td>{parqueadero.ciudad}</td>
                       <td>{parqueadero.direccion}</td>{" "}
                       {/* Se agrega la dirección */}
                       <td>{parqueadero.cantidad_espacios}</td>
-                      <td>{parqueadero.id_tipo}</td>
+                      <td>{parqueadero.desc_tipo}</td>
                       <td>{parqueadero.hora_apertura}</td>
                       <td>{parqueadero.hora_cierre}</td>
                       <td>{parqueadero.precio_minuto_moto}</td>

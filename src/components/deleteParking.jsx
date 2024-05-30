@@ -17,10 +17,7 @@ const DeleteParking = () => {
         const response = await client.get("/api/parqueaderos");
         setParqueaderos(response.data);
       } catch (error) {
-        console.error(
-          "Error fetching parqueaderos:",
-          error.response || error.message
-        );
+        console.error("Error fetching parqueaderos:", error.response || error.message);
       }
     };
 
@@ -36,17 +33,19 @@ const DeleteParking = () => {
   };
 
   const handleDelete = async (index, id) => {
+    // Optimistically update the state
+    const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
+    setParqueaderos(newParqueaderos);
+  
     try {
-      const response = await client.delete(`/parqueaderos/${id}`);
-      if (response.status === 200) {
-        const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
-        setParqueaderos(newParqueaderos);
+      const response = await client.delete(`http://localhost:3000/api/parqueaderos/${id}`);
+      if (response.status !== 200) {
+        throw new Error("Error deleting parqueadero");
       }
     } catch (error) {
-      console.error(
-        "Error deleting parqueadero:",
-        error.response || error.message
-      );
+      console.error("Error deleting parqueadero:", error.response || error.message);
+      // Revert the state if the delete request fails
+      setParqueaderos(parqueaderos);
     }
   };
 
@@ -63,10 +62,7 @@ const DeleteParking = () => {
           <button onClick={handleGerenteClick} className={styles.Gerentebutton}>
             Acceso Gerente
           </button>
-          <button
-            onClick={handleReservationClick}
-            className={styles.Reservationbutton}
-          >
+          <button onClick={handleReservationClick} className={styles.Reservationbutton}>
             ¡Reserva ahora!
           </button>
         </div>
@@ -89,7 +85,7 @@ const DeleteParking = () => {
                   <th>Tarifa Carro por Minuto</th>
                   <th>Tarifa Plena Moto</th>
                   <th>Tarifa Plena Carro</th>
-                  <th></th> {/* Added column for actions */}
+                  <th>Eliminar</th> 
                 </tr>
               </thead>
               <tbody>
@@ -97,11 +93,10 @@ const DeleteParking = () => {
                   parqueaderos.map((parqueadero, index) => (
                     <tr key={parqueadero.id_parqueadero}>
                       <td>{parqueadero.nombre}</td>
-                      <td>{parqueadero.idciudad}</td>
-                      <td>{parqueadero.direccion}</td>{" "}
-                      {/* Se agrega la dirección */}
+                      <td>{parqueadero.ciudad}</td>
+                      <td>{parqueadero.direccion}</td>
                       <td>{parqueadero.cantidad_espacios}</td>
-                      <td>{parqueadero.id_tipo}</td>
+                      <td>{parqueadero.desc_tipo}</td>
                       <td>{parqueadero.hora_apertura}</td>
                       <td>{parqueadero.hora_cierre}</td>
                       <td>{parqueadero.precio_minuto_moto}</td>
@@ -110,9 +105,7 @@ const DeleteParking = () => {
                       <td>{parqueadero.tarifap_auto}</td>
                       <td>
                         <button
-                          onClick={() =>
-                            handleDelete(index, parqueadero.id_parqueadero)
-                          }
+                          onClick={() => handleDelete(index, parqueadero.id_parqueadero)}
                           className={styles.deleteButton}
                         >
                           <FaTrashAlt />
@@ -122,9 +115,7 @@ const DeleteParking = () => {
                   ))
                 ) : (
                   <tr>
-                    <td colSpan="12">
-                      No hay datos de parqueaderos disponibles.
-                    </td>
+                    <td colSpan="12">No hay datos de parqueaderos disponibles.</td>
                   </tr>
                 )}
               </tbody>
@@ -144,10 +135,7 @@ const DeleteParking = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {parqueaderos.map((parqueadero) => (
-            <Marker
-              key={parqueadero.id_parqueadero}
-              position={[4.711, -74.0721]} // Ejemplo: posición fija
-            >
+            <Marker key={parqueadero.id_parqueadero} position={[4.711, -74.0721]}>
               <Popup>
                 <b>{parqueadero.nombre}</b>
                 <br />

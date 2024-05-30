@@ -52,7 +52,7 @@ function Gerente() {
         <br />
         <button
           className={styles.actionButton}
-          onClick={() => navigateTo("/ver-informe")}
+          onClick={() => navigateTo("/emploRegister")}
         >
           Ver Informe
         </button>
