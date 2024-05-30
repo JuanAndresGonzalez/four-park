@@ -16,6 +16,7 @@ import EmploRegister from "./components/emploRegister";
 import Gerente from "./components/gerente";
 import ModificarParqueadero from "./components/modificarParqueadero";
 import RegisterSpecial from "./components/RegisterSpecial";
+import CreditCardAdd from "./components/creditCardAdd";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
@@ -25,7 +26,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/agregarParqueadero" element={<AgregarParqueadero />} />
       <Route path="/reserva" element={<Reserva />} />
       {/*<Route path="/reinicioPassword" element={<PasswordReset />} />*/}
-      {/*<Route path="/recuperarUsuario" element={<UserRecovery />} />*/}
       <Route path="/factura" element={<Factura />} />
       <Route path="/" element={<Home />} />
       <Route path="/parqueadero" element={<Parqueadero />} />
@@ -34,6 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/gerente" element={<Gerente />} />
       <Route path="/modificarParqueadero" element={<ModificarParqueadero />} />
       <Route path="/registrofuncionario" element={<RegisterSpecial />} />
+      <Route path="/credito" element={<CreditCardAdd />} />
     </Routes>
   </Router>
 );

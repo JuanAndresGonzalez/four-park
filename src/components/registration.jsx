@@ -22,25 +22,8 @@ const Registration = () => {
       contrasena: contrasena,
       id_rol: "2    ",
     };
-
-    try {
-      const response = await client.post("/api/usuarios", user);
-
-      if (response.status === 201) {
-        console.log("Usuario registrado:", response.data);
-        navigate("/inise");
-      } else {
-        console.error("Error:", response.data.message);
-        alert(response.data.message);
-      }
-    } catch (error) {
-      if (error.response) {
-        console.error("Error de registro:", error.response.data.message);
-        alert(error.response.data.message);
-      } else {
-        console.error("Error:", error.message);
-      }
-    }
+    localStorage.setItem("regdata", JSON.stringify(user));
+    navigate("/credito");
   };
 
   return (
