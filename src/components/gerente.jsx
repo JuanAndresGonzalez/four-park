@@ -15,7 +15,7 @@ function Gerente() {
   };
 
   const handleDeleteButtonClick = () => {
-    navigate("/parqueadero");
+    navigate("/deleteParking");
   };
 
   return (

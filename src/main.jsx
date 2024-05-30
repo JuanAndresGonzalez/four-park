@@ -17,6 +17,7 @@ import Gerente from "./components/gerente";
 import ModificarParqueadero from "./components/modificarParqueadero";
 import RegisterSpecial from "./components/RegisterSpecial";
 import CreditCardAdd from "./components/creditCardAdd";
+import DeleteParking from "./components/deleteParking";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
@@ -35,6 +36,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/modificarParqueadero" element={<ModificarParqueadero />} />
       <Route path="/registrofuncionario" element={<RegisterSpecial />} />
       <Route path="/credito" element={<CreditCardAdd />} />
+      <Route path="/deleteParking" element={<DeleteParking />} />
     </Routes>
   </Router>
 );

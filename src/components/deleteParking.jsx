@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FaTrashAlt } from "react-icons/fa";
 import { client } from "../services/apirest"; // Import the Axios client
 
-const Parqueadero = () => {
+const DeleteParking = () => {
   const navigate = useNavigate();
   const [parqueaderos, setParqueaderos] = useState([]);
 
@@ -73,7 +73,7 @@ const Parqueadero = () => {
       </nav>
       <div className={styles.BannerContainer}>
         <div className={styles.BannerText}>
-          <h1 className={styles.MainBannerText}>Información de Parqueaderos</h1>
+          <h1 className={styles.MainBannerText}>Eliminar un parqueadero</h1>
           <div className={styles.tableContainer}>
             <table>
               <thead>
@@ -89,6 +89,7 @@ const Parqueadero = () => {
                   <th>Tarifa Carro por Minuto</th>
                   <th>Tarifa Plena Moto</th>
                   <th>Tarifa Plena Carro</th>
+                  <th></th> {/* Added column for actions */}
                 </tr>
               </thead>
               <tbody>
@@ -107,6 +108,16 @@ const Parqueadero = () => {
                       <td>{parqueadero.precio_minuto_auto}</td>
                       <td>{parqueadero.tarifap_moto}</td>
                       <td>{parqueadero.tarifap_auto}</td>
+                      <td>
+                        <button
+                          onClick={() =>
+                            handleDelete(index, parqueadero.id_parqueadero)
+                          }
+                          className={styles.deleteButton}
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      </td>
                     </tr>
                   ))
                 ) : (
@@ -152,4 +163,4 @@ const Parqueadero = () => {
   );
 };
 
-export default Parqueadero;
+export default DeleteParking;
