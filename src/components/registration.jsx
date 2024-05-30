@@ -10,7 +10,6 @@ const Registration = () => {
   const [correo, setCorreo] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
-  const [contrasena, setContrasena] = useState("");
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -19,7 +18,6 @@ const Registration = () => {
       correo_electronico: correo,
       nombre: nombre,
       apellido: apellido,
-      contrasena: contrasena,
       id_rol: "2    ",
     };
     localStorage.setItem("regdata", JSON.stringify(user));
@@ -59,15 +57,6 @@ const Registration = () => {
               required
               value={apellido}
               onChange={(e) => setApellido(e.target.value)}
-              className="input-field"
-            />
-            <br />
-            <input
-              type="password"
-              placeholder="Contraseña"
-              required
-              value={contrasena}
-              onChange={(e) => setContrasena(e.target.value)}
               className="input-field"
             />
             <br />
