@@ -4,8 +4,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "../styles/Parqueadero.module.css";
 import { useNavigate } from "react-router-dom";
-import { FaTrashAlt } from "react-icons/fa"; 
-import axios from "axios";
+import { FaTrashAlt } from "react-icons/fa";
 import { client } from "../services/apirest"; // Import the Axios client
 
 const Parqueadero = () => {
@@ -18,7 +17,10 @@ const Parqueadero = () => {
         const response = await client.get("/api/parqueaderos");
         setParqueaderos(response.data);
       } catch (error) {
-        console.error("Error fetching parqueaderos:", error);
+        console.error(
+          "Error fetching parqueaderos:",
+          error.response || error.message
+        );
       }
     };
 
@@ -35,13 +37,16 @@ const Parqueadero = () => {
 
   const handleDelete = async (index, id) => {
     try {
-      const response = await client.delete(`/api/parqueaderos/${id}`);
+      const response = await client.delete(`/parqueaderos/${id}`);
       if (response.status === 200) {
         const newParqueaderos = parqueaderos.filter((_, i) => i !== index);
         setParqueaderos(newParqueaderos);
       }
     } catch (error) {
-      console.error("Error deleting parqueadero:", error);
+      console.error(
+        "Error deleting parqueadero:",
+        error.response || error.message
+      );
     }
   };
 
@@ -90,26 +95,29 @@ const Parqueadero = () => {
               <tbody>
                 {parqueaderos.length > 0 ? (
                   parqueaderos.map((parqueadero, index) => (
-                    <tr key={parqueadero.id}>
+                    <tr key={parqueadero.id_parqueadero}>
                       <td>{parqueadero.nombre}</td>
-                      <td>{parqueadero.ciudad}</td>
-                      <td>{parqueadero.direccion}</td>
-                      <td>{parqueadero.cantidadEspacios}</td>
-                      <td>{parqueadero.tipo}</td>
-                      <td>{parqueadero.horaApertura}</td>
-                      <td>{parqueadero.horaCierre}</td>
-                      <td>{parqueadero.tarifaMotoPorMinuto}</td>
-                      <td>{parqueadero.tarifaCarroPorMinuto}</td>
-                      <td>{parqueadero.tarifaPlenaMoto}</td>
-                      <td>{parqueadero.tarifaPlenaCarro}</td>
+                      <td>{parqueadero.idciudad}</td>
+                      <td>{parqueadero.direccion}</td>{" "}
+                      {/* Se agrega la dirección */}
+                      <td>{parqueadero.cantidad_espacios}</td>
+                      <td>{parqueadero.id_tipo}</td>
+                      <td>{parqueadero.hora_apertura}</td>
+                      <td>{parqueadero.hora_cierre}</td>
+                      <td>{parqueadero.precio_minuto_moto}</td>
+                      <td>{parqueadero.precio_minuto_auto}</td>
+                      <td>{parqueadero.tarifap_moto}</td>
+                      <td>{parqueadero.tarifap_auto}</td>
                       <td>
                         <button
-                          onClick={() => handleDelete(index, parqueadero.id)}
+                          onClick={() =>
+                            handleDelete(index, parqueadero.id_parqueadero)
+                          }
                           className={styles.deleteButton}
                         >
                           <FaTrashAlt />
                         </button>
-                      </td>{" "}
+                      </td>
                     </tr>
                   ))
                 ) : (
@@ -136,13 +144,16 @@ const Parqueadero = () => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
           {parqueaderos.map((parqueadero) => (
-            <Marker key={parqueadero.id} position={parqueadero.coordenadas}>
+            <Marker
+              key={parqueadero.id_parqueadero}
+              position={[4.711, -74.0721]} // Ejemplo: posición fija
+            >
               <Popup>
                 <b>{parqueadero.nombre}</b>
                 <br />
                 {parqueadero.direccion}
                 <br />
-                {parqueadero.ciudad}
+                {parqueadero.idciudad}
               </Popup>
             </Marker>
           ))}
