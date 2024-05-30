@@ -46,7 +46,10 @@ function Gerente() {
           Eliminar un parqueadero
         </button>
         <br />
-        <button className={styles.actionButton} onClick={() => navigateTo()}>
+        <button
+          className={styles.actionButton}
+          onClick={() => navigateTo("/emploRegister")}
+        >
           Registrar Empleado
         </button>
         <br />
