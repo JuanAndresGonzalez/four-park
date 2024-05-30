@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import logo from "../assets/img/logo.png";
 import { useNavigate } from "react-router-dom";
-import styles from "../styles/Registration.module.css";
+import styles from "../styles/RegisterSpecial.module.css";
 import { client } from "../services/apirest";
 
-const Registration = () => {
+const RegisterSpecial = () => {
   const navigate = useNavigate();
   const [correo, setCorreo] = useState("");
   const [nombre, setNombre] = useState("");
@@ -20,7 +20,7 @@ const Registration = () => {
       nombre: nombre,
       apellido: apellido,
       contrasena: contrasena,
-      id_rol: "2    ",
+      id_rol: "1    ",
     };
 
     try {
@@ -50,7 +50,7 @@ const Registration = () => {
       </div>
       <div className={styles.formcontainer}>
         <div className={styles.formcontent}>
-          <h2>Regístrate</h2>
+          <h2>Regístrate/Funcionario</h2>
           <form onSubmit={handleRegister}>
             <input
               type="email"
@@ -105,19 +105,10 @@ const Registration = () => {
               Inicia sesión
             </button>
           </p>
-          <p>
-            Si eres funcionario{" "}
-            <button
-              onClick={() => navigate("/registrofuncionario")}
-              className={styles.routbuttonER}
-            >
-              Click aquí
-            </button>
-          </p>
         </div>
       </div>
     </div>
   );
 };
 
-export default Registration;
+export default RegisterSpecial;

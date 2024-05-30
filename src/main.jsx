@@ -15,6 +15,7 @@ import Somos from "./components/somos";
 import EmploRegister from "./components/emploRegister";
 import Gerente from "./components/gerente";
 import ModificarParqueadero from "./components/modificarParqueadero";
+import RegisterSpecial from "./components/RegisterSpecial";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <Router>
@@ -32,6 +33,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Route path="/emploRegister" element={<EmploRegister />} />
       <Route path="/gerente" element={<Gerente />} />
       <Route path="/modificarParqueadero" element={<ModificarParqueadero />} />
+      <Route path="/registrofuncionario" element={<RegisterSpecial />} />
     </Routes>
   </Router>
 );
