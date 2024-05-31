@@ -9,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [correo, setCorreo] = useState();
   const [contrasena, setContrasena] = useState();
-  let recaptchaRef;
+  let recaptchaRef = React.createRef();
   const handleResetPasswordClick = () => {
     navigate("/reinicioPassword");
   };
@@ -72,7 +72,7 @@ const Login = () => {
           <br />
           <ReCAPTCHA
             ref={recaptchaRef}
-            sitekey="6Lf5Ku0pAAAAALHlpZlmAcmbnyp0W0YGschV9w9k" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+            sitekey="6LehPe0pAAAAAKtkSQv_Rz2gH-aE_4mO9gZFUIwy" // Reemplaza esto con tu clave de sitio de reCAPTCHA
           />
           <br />
           <button onClick={handleLogin}>Iniciar Sesión</button>

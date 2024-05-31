@@ -15,7 +15,7 @@ const Registration = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    
+
     const recaptchaValue = recaptchaRef.current.getValue();
     if (!recaptchaValue) {
       alert("Por favor, complete el reCAPTCHA.");
@@ -27,7 +27,7 @@ const Registration = () => {
       nombre: nombre,
       apellido: apellido,
       id_rol: "2",
-      recaptcha: recaptchaValue
+      recaptcha: recaptchaValue,
     };
 
     localStorage.setItem("regdata", JSON.stringify(user));
@@ -72,7 +72,7 @@ const Registration = () => {
             <br />
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="TU_CLAVE_DEL_SITIO" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+              sitekey="6LehPe0pAAAAAKtkSQv_Rz2gH-aE_4mO9gZFUIwy" // Reemplaza esto con tu clave de sitio de reCAPTCHA
             />
             <br />
             <button type="submit" className={styles.registerFbutton}>
