@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import logo from "../assets/img/logo.png";
 import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 import styles from "../styles/Registration.module.css";
 import { client } from "../services/apirest";
 
@@ -10,16 +11,25 @@ const Registration = () => {
   const [correo, setCorreo] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
+  const recaptchaRef = React.createRef();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if (!recaptchaValue) {
+      alert("Por favor, complete el reCAPTCHA.");
+      return;
+    }
 
     const user = {
       correo_electronico: correo,
       nombre: nombre,
       apellido: apellido,
-      id_rol: "2    ",
+      id_rol: "2",
+      recaptcha: recaptchaValue
     };
+
     localStorage.setItem("regdata", JSON.stringify(user));
     navigate("/credito");
   };
@@ -60,11 +70,12 @@ const Registration = () => {
               className="input-field"
             />
             <br />
-            <button
-              type="submit"
-              className={styles.registerFbutton}
-              onClick={handleRegister}
-            >
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="TU_CLAVE_DEL_SITIO" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+            />
+            <br />
+            <button type="submit" className={styles.registerFbutton}>
               Regístrate
             </button>
           </form>

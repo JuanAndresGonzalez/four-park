@@ -70,6 +70,8 @@ const DeleteParking = () => {
       <div className={styles.BannerContainer}>
         <div className={styles.BannerText}>
           <h1 className={styles.MainBannerText}>Eliminar un parqueadero</h1>
+          <h3>Ingrese el Id del parqueadero a eliminar</h3>
+          <input type="number" placeholder="ID Parqueadero" required className={styles.inputField}/><button onClick={() => handleDelete(index, parqueadero.id_parqueadero)}className={styles.deleteButton}><FaTrashAlt />Eliminar</button><hr />
           <div className={styles.tableContainer}>
             <table>
               <thead>
@@ -85,7 +87,7 @@ const DeleteParking = () => {
                   <th>Tarifa Carro por Minuto</th>
                   <th>Tarifa Plena Moto</th>
                   <th>Tarifa Plena Carro</th>
-                  <th>Eliminar</th> 
+                  <th>Id parqueadero</th> 
                 </tr>
               </thead>
               <tbody>
@@ -103,14 +105,7 @@ const DeleteParking = () => {
                       <td>{parqueadero.precio_minuto_auto}</td>
                       <td>{parqueadero.tarifap_moto}</td>
                       <td>{parqueadero.tarifap_auto}</td>
-                      <td>
-                        <button
-                          onClick={() => handleDelete(index, parqueadero.id_parqueadero)}
-                          className={styles.deleteButton}
-                        >
-                          <FaTrashAlt />
-                        </button>
-                      </td>
+                      <td>{parqueadero.id_parqueadero}</td>
                     </tr>
                   ))
                 ) : (
