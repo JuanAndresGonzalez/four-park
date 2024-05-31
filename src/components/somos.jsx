@@ -1,17 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/img/logo.png";
 import styles from "../styles/Somos.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Somos = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user-data");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
 
   const handleReservationClick = () => {
     navigate("/reserva");
   };
 
   const handleGerenteClick = () => {
-    navigate("/gerente");
+    if (+user?.id_rol) {
+      navigate("/gerente");
+    } else {
+      navigate("/");
+    }
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user-data");
+    window.location.reload();
+  };
+
+  const handleIniseClick = () => {
+    navigate("/inise");
+  };
+
+  const handleRegistrationClick = () => {
+    navigate("/registration");
   };
 
   return (
@@ -24,15 +49,37 @@ const Somos = () => {
           <a href="/">Inicio</a>
           <a href="/parqueadero">Parqueaderos</a>
           <a href="/somos">¿Quiénes somos?</a>
-          <button onClick={handleGerenteClick} className={styles.Gerentebutton}>
-            Acceso Gerente
-          </button>
-          <button
-            onClick={handleReservationClick}
-            className={styles.Reservationbutton}
-          >
-            ¡Reserva ahora!
-          </button>
+          {user ? (
+            <>
+              <button onClick={handleLogout} className={styles.Loginbutton}>
+                Cerrar sesión
+              </button>
+              {+user.id_rol === 2 ? (
+                <button
+                  onClick={handleReservationClick}
+                  className={styles.Reservationbutton}
+                >
+                  ¡Reserva ahora!
+                </button>
+              ) : (
+                <button
+                  onClick={handleGerenteClick}
+                  className={styles.Gerentebutton}
+                >
+                  Acceso Gerente
+                </button>
+              )}
+            </>
+          ) : (
+            <>
+              <button onClick={handleIniseClick} className={styles.Loginbutton}>
+                Ingresa ahora
+              </button>
+              <button onClick={handleRegistrationClick} className={styles.Loginbutton}>
+                Únete ahora
+              </button>
+            </>
+          )}
         </div>
       </nav>
       <div className={styles.BannerContainer}>

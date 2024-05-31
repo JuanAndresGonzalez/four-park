@@ -10,6 +10,14 @@ import { client } from "../services/apirest"; // Import the Axios client
 const Parqueadero = () => {
   const navigate = useNavigate();
   const [parqueaderos, setParqueaderos] = useState([]);
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user-data");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
 
   useEffect(() => {
     const fetchParqueaderos = async () => {
@@ -32,7 +40,11 @@ const Parqueadero = () => {
   };
 
   const handleGerenteClick = () => {
-    navigate("/gerente");
+    if (+user?.id_rol) {
+      navigate("/gerente");
+    } else {
+      navigate("/");
+    }
   };
 
   const handleDelete = async (index, id) => {
@@ -50,6 +62,19 @@ const Parqueadero = () => {
     }
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user-data");
+    window.location.reload();
+  };
+
+  const handleIniseClick = () => {
+    navigate("/inise");
+  };
+
+  const handleRegistrationClick = () => {
+    navigate("/registration");
+  };
+
   return (
     <div className={styles.parqueadero}>
       <nav>
@@ -60,15 +85,37 @@ const Parqueadero = () => {
           <a href="/">Inicio</a>
           <a href="/parqueadero">Parqueaderos</a>
           <a href="/somos">¿Quiénes somos?</a>
-          <button onClick={handleGerenteClick} className={styles.Gerentebutton}>
-            Acceso Gerente
-          </button>
-          <button
-            onClick={handleReservationClick}
-            className={styles.Reservationbutton}
-          >
-            ¡Reserva ahora!
-          </button>
+          {user ? (
+            <>
+              <button onClick={handleLogout} className={styles.Loginbutton}>
+                Cerrar sesión
+              </button>
+              {+user.id_rol === 2 ? (
+                <button
+                  onClick={handleReservationClick}
+                  className={styles.Reservationbutton}
+                >
+                  ¡Reserva ahora!
+                </button>
+              ) : (
+                <button
+                  onClick={handleGerenteClick}
+                  className={styles.Gerentebutton}
+                >
+                  Acceso Gerente
+                </button>
+              )}
+            </>
+          ) : (
+            <>
+              <button onClick={handleIniseClick} className={styles.Loginbutton}>
+                Ingresa ahora
+              </button>
+              <button onClick={handleRegistrationClick} className={styles.Loginbutton}>
+                Únete ahora
+              </button>
+            </>
+          )}
         </div>
       </nav>
       <div className={styles.BannerContainer}>

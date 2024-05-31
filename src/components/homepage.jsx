@@ -29,7 +29,11 @@ const Home = () => {
   };
 
   const handleGerenteClick = () => {
-    navigate("/gerente");
+    if (+user?.id_rol) {
+      navigate("/gerente");
+    } else {
+      navigate("/");
+    }
   };
 
   const handleIniseClick = () => {
@@ -43,7 +47,7 @@ const Home = () => {
 
   const handleParqueadero = () => {
     if (+user?.id_rol) {
-      navigate("/deleteParking");
+      navigate("/parqueadero");
     } else {
       navigate("/parqueadero");
     }
