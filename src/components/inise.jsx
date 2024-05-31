@@ -1,10 +1,12 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import ReCAPTCHA from "react-google-recaptcha";
 import logo from "../assets/img/logo.png";
 import styles from "../styles/Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const recaptchaRef = React.createRef();
 
   const handleResetPasswordClick = () => {
     navigate("/reinicioPassword");
@@ -12,6 +14,17 @@ const Login = () => {
 
   const handleUserRecoveryClick = () => {
     navigate("/recuperarUsuario");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const recaptchaValue = recaptchaRef.current.getValue();
+    if (recaptchaValue) {
+      // Aquí puedes manejar el inicio de sesión
+      console.log("reCAPTCHA passed:", recaptchaValue);
+    } else {
+      alert("Please complete the reCAPTCHA.");
+    }
   };
 
   return (
@@ -22,7 +35,7 @@ const Login = () => {
       <div className={styles.formcontainer}>
         <div className={styles.formcontent}>
           <h2>Iniciar Sesión</h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <input
               type="text"
               placeholder="Usuario"
@@ -37,6 +50,10 @@ const Login = () => {
               className={styles.inputField}
             />
             <br />
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              sitekey="TU_CLAVE_DEL_SITIO" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+            />
             <br />
             <button type="submit">Iniciar Sesión</button>
           </form>
