@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
+import axios from "axios";
 import logo from "../assets/img/logo.png";
 import styles from "../styles/Login.module.css";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const recaptchaRef = React.createRef();
 
   const handleResetPasswordClick = () => {
@@ -16,12 +19,20 @@ const Login = () => {
     navigate("/recuperarUsuario");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const recaptchaValue = recaptchaRef.current.getValue();
     if (recaptchaValue) {
-      // Aquí puedes manejar el inicio de sesión
-      console.log("reCAPTCHA passed:", recaptchaValue);
+      try {
+        const response = await axios.post('http://localhost:3000/auth/login', {
+          correo_electronico:username,
+          contrasena: password,
+          recaptchaToken: recaptchaValue
+        });
+        alert(response.data.message);
+      } catch (error) {
+        alert(error.response.data.message);
+      }
     } else {
       alert("Please complete the reCAPTCHA.");
     }
@@ -41,6 +52,8 @@ const Login = () => {
               placeholder="Usuario"
               required
               className={styles.inputField}
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
             <br />
             <input
@@ -48,11 +61,13 @@ const Login = () => {
               placeholder="Contraseña"
               required
               className={styles.inputField}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <ReCAPTCHA
               ref={recaptchaRef}
-              sitekey="TU_CLAVE_DEL_SITIO" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+              sitekey="6Lf5Ku0pAAAAALHlpZlmAcmbnyp0W0YGschV9w9k" // Reemplaza esto con tu clave de sitio de reCAPTCHA
             />
             <br />
             <button type="submit">Iniciar Sesión</button>
