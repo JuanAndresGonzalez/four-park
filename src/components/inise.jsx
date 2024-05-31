@@ -5,7 +5,6 @@ import axios from "axios";
 import logo from "../assets/img/logo.png";
 import styles from "../styles/Login.module.css";
 import { client } from "../services/apirest";
-import { useState } from "react";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,36 +19,23 @@ const Login = () => {
     navigate("/recuperarUsuario");
   };
 
-  const handleSubmit = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
     const recaptchaValue = recaptchaRef.current.getValue();
     if (recaptchaValue) {
-      try {
-        const response = await axios.post('http://localhost:3000/auth/login', {
-          correo_electronico:username,
-          contrasena: password,
-          recaptchaToken: recaptchaValue
-        });
-        alert(response.data.message);
-      } catch (error) {
-        alert(error.response.data.message);
+      const res = await client.post(`/api/loginCliente`, {
+        correo_electronico: correo,
+        contrasena: contrasena,
+        recaptchaToken: recaptchaValue,
+      });
+      if (res.status === 200) {
+        localStorage.setItem("user-data", JSON.stringify(res.data));
+        navigate("/");
+      } else {
+        console.error("Fallo login");
       }
     } else {
       alert("Please complete the reCAPTCHA.");
-    }
-  };
-
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    const res = await client.post(`/api/loginCliente`, {
-      correo_electronico: correo,
-      contrasena: contrasena,
-    });
-    if (res.status === 200) {
-      localStorage.setItem("user-data", JSON.stringify(res.data));
-      navigate("/");
-    } else {
-      console.error("Fallo login");
     }
   };
 
@@ -77,7 +63,6 @@ const Login = () => {
               required
               className={styles.inputField}
               value={username}
-              onChange={(e) => setUsername(e.target.value)}
             />
             <br />
             <input
@@ -87,7 +72,6 @@ const Login = () => {
               required
               className={styles.inputField}
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <br />
             <ReCAPTCHA
