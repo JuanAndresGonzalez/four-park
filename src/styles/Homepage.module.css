@@ -77,6 +77,20 @@ body, html {
     font-weight: 600;
     border-radius: 6%;
   }
+  .Loginbutton{
+    background-color: #A91127;
+    color: #f3f2ed;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: absolute; 
+    top: 10px; /* Añadido */
+    right: 350px; /* Añadido */
+    font-family: "Quicksand", serif;
+    font-weight: 600;
+    border-radius: 6%;
+  }
   .Gerentebutton{
     background-color: #A91127;
     color: #f3f2ed;

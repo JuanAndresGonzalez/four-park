@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/img/logo.png";
 import camioneta from "../assets/img/camioneta.png";
 import dinero from "../assets/img/dinero.png";
@@ -9,6 +9,15 @@ import styles from "../styles/Homepage.module.css";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const [user, setUser] = useState();
+
+  useEffect(() => {
+    const userData = localStorage.getItem("user-data");
+    if (userData) {
+      setUser(JSON.parse(userData));
+    }
+  }, []);
+
   const navigate = useNavigate();
 
   const handleReservationClick = () => {
@@ -27,6 +36,19 @@ const Home = () => {
     navigate("/inise");
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user-data");
+    window.location.reload();
+  };
+
+  const handleParqueadero = () => {
+    if (+user?.id_rol) {
+      navigate("/deleteParking");
+    } else {
+      navigate("/parqueadero");
+    }
+  };
+
   return (
     <div className={styles.Homepage}>
       <nav>
@@ -35,17 +57,36 @@ const Home = () => {
         </div>
         <div className={styles.navLinks}>
           <a href="/">Inicio</a>
-          <a href="/parqueadero">Parqueaderos</a>
+          <a onClick={handleParqueadero}>Parqueaderos</a>
           <a href="/somos">¿Quiénes somos?</a>
-          <button onClick={handleGerenteClick} className={styles.Gerentebutton}>
-            Acceso Gerente
-          </button>
-          <button
-            onClick={handleReservationClick}
-            className={styles.Reservationbutton}
-          >
-            ¡Reserva ahora!
-          </button>
+          {user ? (
+            <>
+              <button onClick={handleLogout} className={styles.Loginbutton}>
+                Cerrar sesión
+              </button>
+              {+user.id_rol === 2 ? (
+                <>
+                  <button
+                    onClick={handleReservationClick}
+                    className={styles.Reservationbutton}
+                  >
+                    ¡Reserva ahora!
+                  </button>
+                </>
+              ) : (
+                <>
+                  <button
+                    onClick={handleGerenteClick}
+                    className={styles.Gerentebutton}
+                  >
+                    Acceso Gerente
+                  </button>
+                </>
+              )}
+            </>
+          ) : (
+            <></>
+          )}
         </div>
       </nav>
       <div className={styles.BannerContainer}>
@@ -68,15 +109,24 @@ const Home = () => {
             </h3>
           </p>
           <div className={styles.BannerButtons}>
-            <button
-              onClick={handleRegistrationClick}
-              className={styles.BannerButton}
-            >
-              Únete ahora
-            </button>
-            <button onClick={handleIniseClick} className={styles.BannerButton}>
-              Ingresa ahora
-            </button>
+            {user ? (
+              <></>
+            ) : (
+              <>
+                <button
+                  onClick={handleRegistrationClick}
+                  className={styles.BannerButton}
+                >
+                  Únete ahora
+                </button>
+                <button
+                  onClick={handleIniseClick}
+                  className={styles.BannerButton}
+                >
+                  Ingresa ahora
+                </button>
+              </>
+            )}
           </div>
         </div>
       </div>

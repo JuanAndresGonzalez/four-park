@@ -66,7 +66,7 @@ const CreditCardForm = () => {
         await finishRegister();
         const response = await client.post("/api/tarjetas", tarjeta);
         if (response.status === 201) {
-          navigate("/next-page");
+          navigate("/inise");
         } else {
           throw new Error(response.data.error || "Failed to add card");
         }
