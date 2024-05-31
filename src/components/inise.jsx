@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ReCAPTCHA from "react-google-recaptcha";
-import axios from "axios";
 import logo from "../assets/img/logo.png";
 import styles from "../styles/Login.module.css";
 import { client } from "../services/apirest";
@@ -10,7 +9,7 @@ const Login = () => {
   const navigate = useNavigate();
   const [correo, setCorreo] = useState();
   const [contrasena, setContrasena] = useState();
-
+  let recaptchaRef;
   const handleResetPasswordClick = () => {
     navigate("/reinicioPassword");
   };
@@ -55,32 +54,28 @@ const Login = () => {
       <div className={styles.formcontainer}>
         <div className={styles.formcontent}>
           <h2>Iniciar Sesión</h2>
-          <form onSubmit={handleSubmit}>
-            <input
-              type="text"
-              onChange={handleUserChange}
-              placeholder="Usuario"
-              required
-              className={styles.inputField}
-              value={username}
-            />
-            <br />
-            <input
-              type="password"
-              onChange={handlePasswordChange}
-              placeholder="Contraseña"
-              required
-              className={styles.inputField}
-              value={password}
-            />
-            <br />
-            <ReCAPTCHA
-              ref={recaptchaRef}
-              sitekey="6Lf5Ku0pAAAAALHlpZlmAcmbnyp0W0YGschV9w9k" // Reemplaza esto con tu clave de sitio de reCAPTCHA
-            />
-            <br />
-            <button onClick={handleLogin}>Iniciar Sesión</button>
-          </form>
+          <input
+            type="text"
+            onChange={handleUserChange}
+            placeholder="Usuario"
+            required
+            className={styles.inputField}
+          />
+          <br />
+          <input
+            type="password"
+            onChange={handlePasswordChange}
+            placeholder="Contraseña"
+            required
+            className={styles.inputField}
+          />
+          <br />
+          <ReCAPTCHA
+            ref={recaptchaRef}
+            sitekey="6Lf5Ku0pAAAAALHlpZlmAcmbnyp0W0YGschV9w9k" // Reemplaza esto con tu clave de sitio de reCAPTCHA
+          />
+          <br />
+          <button onClick={handleLogin}>Iniciar Sesión</button>
           <p>
             <button
               type="button"
